@@ -1,0 +1,267 @@
+:root {
+  --bg: #f4f7fb;
+  --white: #ffffff;
+  --text: #0d1b2a;
+  --muted: #415a77;
+  --primary: #0a4fbf;
+  --primary-dark: #083a8f;
+  --border: #dbe5f3;
+  --shadow: 0 10px 30px rgba(11, 47, 104, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', 'Noto Sans TC', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  width: min(1160px, 92vw);
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  background: rgba(244, 247, 251, 0.9);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 0;
+}
+
+.brand {
+  font-weight: 800;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.section {
+  padding: 4.5rem 0;
+}
+
+.alt-bg {
+  background: #eef3fb;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.15;
+  margin: 0.4rem 0 1.1rem;
+}
+
+.eyebrow {
+  color: var(--primary);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.lead {
+  color: var(--muted);
+  max-width: 780px;
+}
+
+.hero-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1.45fr 1fr;
+  align-items: stretch;
+}
+
+.hero-panel {
+  background: linear-gradient(180deg, #0f264d 0%, #0a1a37 100%);
+  color: var(--white);
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+.hero-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hero-panel li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.6rem 0;
+  font-size: 0.95rem;
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.2rem;
+}
+
+.btn {
+  border-radius: 10px;
+  padding: 0.7rem 1.05rem;
+  text-decoration: none;
+  font-weight: 700;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn-secondary {
+  background: var(--white);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: var(--muted);
+  color: var(--text);
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.two-col {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.three-col {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.four-col {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.1rem;
+  box-shadow: var(--shadow);
+}
+
+.route-card pre,
+#schema pre {
+  background: #0e1b32;
+  color: #d9e4ff;
+  border-radius: 10px;
+  overflow: auto;
+  padding: 0.8rem;
+  font-size: 0.84rem;
+}
+
+.workflow,
+.route-flow {
+  margin-top: 0.8rem;
+  padding: 0.7rem;
+  border-radius: 10px;
+  background: #eaf2ff;
+  color: #113165;
+  font-weight: 600;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.cta-card,
+.founder-card {
+  background: var(--white);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+}
+
+.feature {
+  text-align: center;
+  font-weight: 600;
+}
+
+.site-footer {
+  background: #0b1f3f;
+  color: #d2e0ff;
+  padding: 2rem 0;
+}
+
+.footer-wrap {
+  display: grid;
+  gap: 0.35rem;
+}
+
+@media (max-width: 1024px) {
+  .four-col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-grid,
+  .three-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .nav-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+  }
+
+  .section {
+    padding: 3.4rem 0;
+  }
+
+  .two-col,
+  .four-col {
+    grid-template-columns: 1fr;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
