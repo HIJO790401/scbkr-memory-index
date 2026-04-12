@@ -23,6 +23,7 @@
         <nav class="nav-links">
           <a href="#about">About</a>
           <a href="#routes">Memory Routes</a>
+          <a href="#interactive-demo">Interactive Demo</a>
           <a href="#download">Download Repo ZIP</a>
           <a href="#tutorial">Guide</a>
           <a href="#founder">Founder</a>
@@ -137,6 +138,32 @@
               <div class="workflow">Local Folder / Memory Files → SCBKR Index → Your Model → Recall / Route / Replay</div>
               <p class="muted">Local-first control for privacy-sensitive teams and personal memory vault deployments.</p>
             </article>
+          </div>
+        </div>
+      </section>
+
+
+      <section id="interactive-demo" class="section">
+        <div class="container">
+          <h2>Interactive SCBKR Demo / 即時 SCBKR 示範</h2>
+          <div class="card interactive-card">
+            <p class="muted">
+              Paste a short paragraph and get a rule-based SCBKR suggestion. This is a demo suggestion only,
+              not a final governance judgment.
+              貼上一段短文後，系統會用簡單規則給出 SCBKR 建議；此結果僅為示範，不是最終治理判斷。
+            </p>
+            <label for="demoInput"><strong>Input / 輸入文本</strong></label>
+            <textarea id="demoInput" rows="6" placeholder="Example: We had repeated latency incidents after release, and ops lead must review evidence logs before rollback."></textarea>
+            <div class="btn-group">
+              <button id="analyzeBtn" class="btn btn-primary" type="button">Analyze SCBKR / 分析 SCBKR</button>
+            </div>
+            <div id="demoOutput" class="demo-output" aria-live="polite">
+              <p><strong>S (Subject):</strong> <span data-field="S">-</span></p>
+              <p><strong>C (Cause):</strong> <span data-field="C">-</span></p>
+              <p><strong>B (Boundary):</strong> <span data-field="B">-</span></p>
+              <p><strong>K (Key Evidence):</strong> <span data-field="K">-</span></p>
+              <p><strong>R (Responsibility):</strong> <span data-field="R">-</span></p>
+            </div>
           </div>
         </div>
       </section>
@@ -287,6 +314,8 @@ Personal notes   -> continuity lane</code></pre>
       </section>
     </main>
 
+
+    <script src="./app.js"></script>
 
     <footer class="site-footer">
       <div class="container footer-wrap">

@@ -1,63 +1,59 @@
 (function () {
-  const btn = document.getElementById('downloadZipBtn');
-  const status = document.getElementById('zipStatus');
+  const input = document.getElementById('demoInput');
+  const btn = document.getElementById('analyzeBtn');
+  const output = document.getElementById('demoOutput');
 
-  if (!btn) return;
+  if (!input || !btn || !output) return;
 
-  const starterFiles = [
-    'starter-package/README.txt',
-    'starter-package/DEPLOY_AND_AUTOINDEX.md',
-    'starter-package/tools/auto_index.py',
-    'starter-package/memory-index/index.scbkr.json',
-    'starter-package/memory-index/json/sample-memory.json',
-    'starter-package/memory-index/drive-import/.keep',
-    'starter-package/memory-index/local-private/.keep'
-  ];
+  const getField = (key) => output.querySelector(`[data-field="${key}"]`);
 
-  async function fetchTextFile(path) {
-    const res = await fetch(path, { cache: 'no-cache' });
-    if (!res.ok) {
-      throw new Error(`Failed to fetch ${path}: ${res.status}`);
-    }
-    return res.text();
+  function firstSentence(text) {
+    return text.split(/[。.!?\n]/).map((s) => s.trim()).filter(Boolean)[0] || text.trim();
   }
 
-  async function buildZip() {
-    if (!window.JSZip) {
-      throw new Error('JSZip not loaded');
-    }
-
-    const zip = new window.JSZip();
-    for (const filePath of starterFiles) {
-      const content = await fetchTextFile(filePath);
-      zip.file(filePath.replace('starter-package/', ''), content);
-    }
-
-    return zip.generateAsync({ type: 'blob' });
+  function extractEvidence(text) {
+    const words = text.match(/[A-Za-z0-9._-]+/g) || [];
+    const hints = words.filter((w) => /(log|report|doc|policy|note|evidence|record|ticket)/i.test(w));
+    return hints.slice(0, 3).join(', ') || 'source-text-snippet';
   }
 
-  btn.addEventListener('click', async function () {
-    try {
-      btn.disabled = true;
-      status.textContent = '正在建立 ZIP / Building ZIP...';
+  function extractResponsibility(text) {
+    const match = text.match(/(owner|lead|manager|operator|maintainer|負責人|主管|經理|組長)[:：\s]*([\w\u4e00-\u9fa5\- ]{2,40})?/i);
+    if (!match) return 'user-owner';
+    return (match[2] || match[1] || 'user-owner').trim();
+  }
 
-      const zipBlob = await buildZip();
-      const downloadUrl = URL.createObjectURL(zipBlob);
-      const anchor = document.createElement('a');
-      anchor.href = downloadUrl;
-      anchor.download = 'scbkr-memory-index-starter.zip';
-      document.body.appendChild(anchor);
-      anchor.click();
-      anchor.remove();
-      URL.revokeObjectURL(downloadUrl);
-
-      status.textContent = 'ZIP 已建立並開始下載。ZIP built and download started.';
-    } catch (error) {
-      console.error(error);
-      status.textContent =
-        'ZIP 建立失敗，請直接下載 repository ZIP 或檢查網路是否可載入 JSZip。';
-    } finally {
-      btn.disabled = false;
+  function suggestSCBKR(text) {
+    const normalized = text.trim();
+    if (!normalized) {
+      return { S: '-', C: '-', B: '-', K: '-', R: '-' };
     }
+
+    const sentence = firstSentence(normalized);
+    const S = sentence.slice(0, 80);
+
+    let C = 'Context extracted from input text';
+    if (/(because|due to|caused by|因為|導致|由於)/i.test(normalized)) {
+      C = 'Cause signal detected (because / due to / 因為 / 導致)';
+    }
+
+    let B = 'No explicit boundary found; define operational and policy limits';
+    if (/(must|cannot|should not|不得|必須|限制|禁止)/i.test(normalized)) {
+      B = 'Boundary signal detected (must / cannot / 必須 / 不得)';
+    }
+
+    const K = extractEvidence(normalized);
+    const R = extractResponsibility(normalized);
+
+    return { S, C, B, K, R };
+  }
+
+  btn.addEventListener('click', function () {
+    const result = suggestSCBKR(input.value);
+    getField('S').textContent = result.S;
+    getField('C').textContent = result.C;
+    getField('B').textContent = result.B;
+    getField('K').textContent = result.K;
+    getField('R').textContent = result.R;
   });
 })();

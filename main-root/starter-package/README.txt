@@ -1,18 +1,23 @@
 SCBKR Memory Index Starter Package
 
-This ZIP contains the open indexing layer starter structure (not the closed governance core).
+This package provides the OPEN INDEXING LAYER (not the closed governance core).
+本套件提供開放索引層（不包含封閉治理核心）。
 
-Quick start:
-1) Put your memory files into memory-index/json, drive-import, or local-private.
-2) Run the auto-index script to generate an SCBKR index file.
-3) Connect your own model/tooling to route and replay indexed memory.
+Folder map / 路徑地圖:
+- repo root: whole project
+- main-root: static public frontend
+- main-root/starter-package: starter data + indexing tool
 
-Commands:
-- cd starter-package
-- python3 tools/auto_index.py --source ./memory-index --output ./memory-index/index.scbkr.generated.json
+Quick start (from repo root):
+1) cd main-root/starter-package
+2) python3 tools/auto_index.py --source ./memory-index --output ./memory-index/index.scbkr.generated.json
 
-Deploy guide:
-- Read DEPLOY_AND_AUTOINDEX.md for local run + GitHub Pages steps.
+Quick start (from main-root):
+1) cd starter-package
+2) python3 tools/auto_index.py --source ./memory-index --output ./memory-index/index.scbkr.generated.json
+
+Optional owner example:
+python3 tools/auto_index.py --source ./memory-index --output ./memory-index/index.scbkr.generated.json --default-owner "Shen-Yao 888π / Wen-Yao Hsu"
 
 SCBKR
 - S = Subject
@@ -20,3 +25,6 @@ SCBKR
 - B = Boundary
 - K = Key Evidence
 - R = Responsibility
+
+Note:
+R is not just metadata. Responsibility should be consciously assigned by users.
