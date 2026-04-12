@@ -47,3 +47,15 @@ python3 -m http.server 8080
 ```
 
 Then open: <http://localhost:8080>
+
+
+## Practical usage / 實際使用路徑
+
+If your goal is to actually use memory indexing (not just view the webpage), start here:
+
+```bash
+cd main-root/starter-package
+python3 tools/auto_index.py --source ./memory-index --output ./memory-index/index.scbkr.generated.json
+```
+
+Use files under `main-root/starter-package/memory-index/` as your working memory source folders.

@@ -25,3 +25,18 @@ Then open: <http://localhost:8080>
 - Includes demo route UI for JSON, Google Drive workflow, and OpenClaw local workflow.
 - Download button on homepage points to repository ZIP.
 - After unzipping, deploy the static frontend from `main-root/`.
+
+
+## If your goal is memory indexing usage / 如果你的目標是實際使用記憶索引
+
+Do not start from frontend styling files. Start from:
+
+```bash
+cd main-root/starter-package
+python3 tools/auto_index.py --source ./memory-index --output ./memory-index/index.scbkr.generated.json
+```
+
+Working folders:
+- `memory-index/json/`
+- `memory-index/drive-import/`
+- `memory-index/local-private/`

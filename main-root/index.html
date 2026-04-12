@@ -208,8 +208,8 @@
             Download Repository ZIP / 下載整個 Repo
           </a>
           <p class="muted">
-            下載後請進入 <code>main-root/</code> 部署靜態前端（GitHub Pages 建議設定該資料夾為發布根目錄）。
-            After download, deploy the static site from <code>main-root/</code>.
+            下載後如果要「實際使用記憶索引」，請直接進入 <code>main-root/starter-package/</code>。
+            For real indexing usage, go directly to <code>main-root/starter-package/</code>.
           </p>
         </div>
       </section>
@@ -217,29 +217,34 @@
 
       <section id="tutorial" class="section alt-bg">
         <div class="container">
-          <h2>Quick Deployment Guide / 快速部署教學</h2>
+          <h2>Quick Usage Guide / 快速使用指南</h2>
           <div class="grid three-col">
             <article class="card">
-              <h3>Step 1 · Download Repo</h3>
+              <h3>Step 1 · 找到使用資料夾</h3>
               <p>
-                Click <strong>Download Repository ZIP</strong>, unzip locally, and locate the
-                <code>main-root</code> folder.
+                下載 Repo ZIP 解壓後，真正要使用記憶索引的目錄是
+                <code>main-root/starter-package/memory-index/</code>。
               </p>
-              <p>按下下載後解壓，找到 <code>main-root</code> 目錄，這就是你的靜態前端入口。</p>
+              <p>
+                This is the working folder for memory indexing, not the frontend page folder.
+              </p>
             </article>
             <article class="card">
-              <h3>Step 2 · Run Locally</h3>
-              <pre><code>cd main-root
-python3 -m http.server 8080</code></pre>
-              <p>Open <code>http://localhost:8080</code> to preview. 在本機即可立即預覽。</p>
+              <h3>Step 2 · 放入你的記憶資料</h3>
+              <p>把你的檔案放進以下三個子目錄：</p>
+              <pre><code>memory-index/json/
+memory-index/drive-import/
+memory-index/local-private/</code></pre>
+              <p>這樣可用同一套 SCBKR 結構管理不同來源記憶，降低遺忘與漂移。</p>
             </article>
             <article class="card">
-              <h3>Step 3 · Deploy to GitHub Pages</h3>
+              <h3>Step 3 · 產生索引後接自己的模型</h3>
+              <pre><code>cd main-root/starter-package
+python3 tools/auto_index.py   --source ./memory-index   --output ./memory-index/index.scbkr.generated.json</code></pre>
               <p>
-                Push repo to GitHub → Settings → Pages → select branch/folder. Set folder to
-                <code>main-root</code> for this frontend.
+                接著用你自己的模型讀取這份索引做 recall / route / replay。
+                This is how you keep memory structured and less forgetful over sessions.
               </p>
-              <p>如果你不熟部署，照這 3 步做就可以上線靜態前端版。</p>
             </article>
           </div>
         </div>

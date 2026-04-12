@@ -5,6 +5,20 @@
 >
 > 本套件是長期 AI 記憶組織的**開放索引層**，**不是**封閉治理/判斷核心。
 
+## 0) If you only care about using memory index quickly / 只想快速使用記憶索引
+
+Use this exact path first:
+
+```bash
+cd main-root/starter-package
+python3 tools/auto_index.py --source ./memory-index --output ./memory-index/index.scbkr.generated.json
+```
+
+Then put your own files in:
+- `memory-index/json/`
+- `memory-index/drive-import/`
+- `memory-index/local-private/`
+
 ## 1) Folder map / 路徑地圖
 
 - `repo-root/`：整個專案根目錄

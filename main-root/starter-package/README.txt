@@ -3,6 +3,11 @@ SCBKR Memory Index Starter Package
 This package provides the OPEN INDEXING LAYER (not the closed governance core).
 本套件提供開放索引層（不包含封閉治理核心）。
 
+FASTEST USAGE:
+- cd main-root/starter-package
+- python3 tools/auto_index.py --source ./memory-index --output ./memory-index/index.scbkr.generated.json
+- put your files in memory-index/json, drive-import, local-private
+
 Folder map / 路徑地圖:
 - repo root: whole project
 - main-root: static public frontend
