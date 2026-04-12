@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="SCBKR Memory Index - Open indexing framework for long-term AI memory organization."
+    />
+    <title>SCBKR Memory Index | SCBKR 記憶庫索引</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="#top">SCBKR Memory Index</a>
+        <nav class="nav-links">
+          <a href="#about">About</a>
+          <a href="#routes">Memory Routes</a>
+          <a href="#download">Download Repo ZIP</a>
+          <a href="#tutorial">Guide</a>
+          <a href="#founder">Founder</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero section">
+        <div class="container hero-grid">
+          <div>
+            <p class="eyebrow">Open AI Memory Infrastructure · 開放式 AI 記憶基礎架構</p>
+            <h1>SCBKR 記憶庫索引<br />SCBKR Memory Index</h1>
+            <p class="lead">
+              這是一個針對長期 AI 記憶組織的開放式索引框架，協助你把記憶做成可查、可重播、可稽核、可路由的結構。<br />
+              This is an open indexing framework for long-term AI memory organization, designed for replayable,
+              auditable, and routable memory structure.
+            </p>
+            <p class="lead">
+              完整定位：本專案提供「公開可擴充索引層」，幫助你整理跨會話與跨來源記憶，並且可以接你自己的模型；
+              不包含封閉治理與最終判斷核心。<br />
+              Full positioning: this project ships an open, extensible indexing layer for cross-session memory
+              organization and routing with your own models, while excluding the closed governance/judgment core.
+            </p>
+            <div class="btn-group">
+              <a class="btn btn-primary" href="#routes">View Demo / 查看示範</a>
+              <a class="btn btn-secondary" href="#download">Download ZIP / 下載 ZIP</a>
+              <a
+                class="btn btn-ghost"
+                href="https://hijo790401.github.io/shen-yao-portal/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Visit Founder Website / 創辦人網站</a
+              >
+            </div>
+          </div>
+          <div class="hero-panel">
+            <h3>SCBKR Core Schema</h3>
+            <ul>
+              <li><strong>S · Subject</strong><span>主體 / 事件核心對象</span></li>
+              <li><strong>C · Cause</strong><span>原因 / 背景脈絡</span></li>
+              <li><strong>B · Boundary</strong><span>邊界 / 限制條件</span></li>
+              <li><strong>K · Key Evidence</strong><span>關鍵證據 / 來源鏈</span></li>
+              <li><strong>R · Responsibility</strong><span>責任歸屬 / 追溯節點</span></li>
+            </ul>
+            <p>Open indexing layer only · 僅開放索引層，不包含封閉治理判斷核心</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container">
+          <h2>About SCBKR / 關於 SCBKR</h2>
+          <div class="grid two-col">
+            <article class="card">
+              <h3>What it is / 是什麼</h3>
+              <p>
+                SCBKR is a structured memory indexing framework: Subject, Cause, Boundary, Key Evidence,
+                Responsibility. It standardizes how memory units are organized and routed over long AI sessions.
+              </p>
+              <p>
+                SCBKR 是一種結構化記憶索引框架，將長期 AI 記憶拆成 Subject、Cause、Boundary、Key Evidence、Responsibility
+                五欄位，讓記憶單元具備一致性與可追溯性。
+              </p>
+            </article>
+            <article class="card">
+              <h3>Why not RAG-only / 為何不只做 RAG</h3>
+              <p>
+                Traditional RAG retrieval focuses on matching chunks. SCBKR focuses on indexing logic,
+                replayability, auditability, and routing behavior so memory can remain coherent across time.
+              </p>
+              <p>
+                本專案重點是「索引結構」，不是封閉治理或判斷引擎；它提供可重播、可稽核、可路由的公開層，協助你對接自己的模型。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="routes" class="section alt-bg">
+        <div class="container">
+          <h2>Memory Routes / 記憶路由示範</h2>
+          <div class="grid three-col">
+            <article class="card route-card">
+              <h3>Route A · JSON Demo</h3>
+              <p>以 JSON 節點展示 SCBKR 記憶索引、重播與稽核。</p>
+              <pre><code>{
+  "id": "mem-1024",
+  "S": "Client onboarding risk",
+  "C": "Policy mismatch in intake",
+  "B": "No legal advice output",
+  "K": ["meeting-notes-032", "policy-v4"],
+  "R": "Ops Lead"
+}</code></pre>
+              <div class="route-flow">JSON Memory → SCBKR Index → Route → Replay / Audit</div>
+            </article>
+            <article class="card route-card">
+              <h3>Route B · Google Drive Demo</h3>
+              <p>
+                使用 Google Drive 資料夾與文件作為記憶來源，透過 SCBKR 欄位進行索引，不需真實 API 即可理解完整流程。
+              </p>
+              <div class="workflow">Google Drive Folder → Document Set → SCBKR Index → Route → Replay</div>
+              <p class="muted">
+                Users can organize docs in Drive, then map each doc to S/C/B/K/R for cloud-compatible memory routing.
+              </p>
+            </article>
+            <article class="card route-card">
+              <h3>Route C · OpenClaw Local Demo</h3>
+              <p>
+                本地私有路由：本機資料夾與記憶檔案可先做 SCBKR 索引，再交給你的本地模型做 Recall / Route / Replay。
+              </p>
+              <div class="workflow">Local Folder / Memory Files → SCBKR Index → Your Model → Recall / Route / Replay</div>
+              <p class="muted">Local-first control for privacy-sensitive teams and personal memory vault deployments.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+
+      <section id="showcase" class="section">
+        <div class="container">
+          <h2>SCBKR Showcase / SCBKR 展示示範</h2>
+          <p class="muted">
+            Fixed product showcase only: three static demonstrations for JSON, Google Drive flow, and OpenClaw local flow.
+            本區為固定示範展示：僅展示 JSON、Google Drive 與 OpenClaw 本地流程，不提供自由輸入沙盒。
+          </p>
+          <div class="grid three-col showcase-grid">
+            <article class="card">
+              <h3>A. JSON Showcase</h3>
+              <pre><code>{
+  "id": "showcase-001",
+  "S": "Incident memory: release rollback",
+  "C": "Latency spikes after deployment",
+  "B": "Must preserve audit trail",
+  "K": ["incident-log-44", "benchmark-report-v2"],
+  "R": "Ops Lead"
+}</code></pre>
+              <p class="route-flow">SCBKR Mapping → performance-memory-lane → Replay + Audit trace</p>
+            </article>
+            <article class="card">
+              <h3>B. Google Drive Showcase</h3>
+              <div class="workflow">Google Drive Folder → Document Set → SCBKR Index → Route → Replay</div>
+              <p>
+                Static conceptual workflow for cloud document indexing. No live Google API is used.
+                固定展示雲端文件索引流程，不呼叫真實 Google API。
+              </p>
+            </article>
+            <article class="card">
+              <h3>C. OpenClaw Local Showcase</h3>
+              <div class="workflow">Local Folder / Memory Files → SCBKR Index → Your Model → Recall / Route / Replay</div>
+              <p>
+                Local-first memory indexing for privacy-sensitive deployment with user-owned models and data.
+                強調本地優先、使用者自有模型與資料控制。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="download" class="section">
+        <div class="container cta-card">
+          <h2>Download ZIP / 下載 ZIP</h2>
+          <p>
+            下載開放式索引層 ZIP，直接在本地建立自己的記憶索引資料夾，並接入你自己的模型。
+            Download the open indexing layer as a ZIP package and run locally with your own models.
+          </p>
+          <ul>
+            <li>建立自己的 indexed memory folder</li>
+            <li>Use your own model stack / orchestration</li>
+            <li>Reduce memory drift with structured indexing</li>
+            <li>可選擇全本地保留資料，提升隱私控制</li>
+            <li>ZIP 內附 auto-index 指南與腳本，協助你快速建立 SCBKR 索引</li>
+          </ul>
+          <p class="muted">Open indexing layer only, not the closed governance core.
+            ZIP 內含可直接使用的 starter 結構、部署說明與 auto-index 腳本。</p>
+          <a
+            class="btn btn-primary"
+            href="https://github.com/hijo790401/scbkr-memory-index/archive/refs/heads/main.zip"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Download repository ZIP"
+          >
+            Download Repository ZIP / 下載整個 Repo
+          </a>
+          <p class="muted">
+            下載後請進入 <code>main-root/</code> 部署靜態前端（GitHub Pages 建議設定該資料夾為發布根目錄）。
+            After download, deploy the static site from <code>main-root/</code>.
+          </p>
+        </div>
+      </section>
+
+
+      <section id="tutorial" class="section alt-bg">
+        <div class="container">
+          <h2>Quick Deployment Guide / 快速部署教學</h2>
+          <div class="grid three-col">
+            <article class="card">
+              <h3>Step 1 · Download Repo</h3>
+              <p>
+                Click <strong>Download Repository ZIP</strong>, unzip locally, and locate the
+                <code>main-root</code> folder.
+              </p>
+              <p>按下下載後解壓，找到 <code>main-root</code> 目錄，這就是你的靜態前端入口。</p>
+            </article>
+            <article class="card">
+              <h3>Step 2 · Run Locally</h3>
+              <pre><code>cd main-root
+python3 -m http.server 8080</code></pre>
+              <p>Open <code>http://localhost:8080</code> to preview. 在本機即可立即預覽。</p>
+            </article>
+            <article class="card">
+              <h3>Step 3 · Deploy to GitHub Pages</h3>
+              <p>
+                Push repo to GitHub → Settings → Pages → select branch/folder. Set folder to
+                <code>main-root</code> for this frontend.
+              </p>
+              <p>如果你不熟部署，照這 3 步做就可以上線靜態前端版。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt-bg" id="features">
+        <div class="container">
+          <h2>Features / 功能亮點</h2>
+          <div class="grid four-col">
+            <article class="card feature">Structured memory indexing / 結構化記憶索引</article>
+            <article class="card feature">Replayable recall / 可重播召回</article>
+            <article class="card feature">Responsibility-aware organization / 責任可追溯</article>
+            <article class="card feature">SCBKR schema-ready / SCBKR 架構標準化</article>
+            <article class="card feature">Cloud-compatible organization / 雲端相容組織</article>
+            <article class="card feature">Local/private deployment / 本地私有部署</article>
+            <article class="card feature">Human-readable audit trail / 人類可讀稽核軌跡</article>
+            <article class="card feature">Extendable ZIP starter package / 可延展 ZIP 起始包</article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="schema">
+        <div class="container">
+          <h2>Schema & Examples / 架構與範例</h2>
+          <div class="grid two-col">
+            <article class="card">
+              <h3>SCBKR JSON Example</h3>
+              <pre><code>{
+  "memory_item": {
+    "S": "Project Alpha design decision",
+    "C": "Latency incidents in release candidate",
+    "B": "Must stay under 200ms P95",
+    "K": ["benchmark-2026-03-18", "incident-review-77"],
+    "R": "Platform Architect"
+  },
+  "route": "performance-memory-lane",
+  "replay_id": "rp-4471"
+}</code></pre>
+            </article>
+            <article class="card">
+              <h3>Memory Folder & Routing</h3>
+              <pre><code>/memory-index/
+  /json/
+  /drive-import/
+  /local-private/
+  index.scbkr.json
+
+Routing example:
+Compliance docs  -> governance lane
+Engineering logs -> performance lane
+Personal notes   -> continuity lane</code></pre>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt-bg" id="use-cases">
+        <div class="container">
+          <h2>Use Cases / 實際使用情境</h2>
+          <div class="grid three-col">
+            <article class="card">Personal AI memory organization / 個人 AI 記憶整理</article>
+            <article class="card">Project archive indexing / 專案檔案索引化</article>
+            <article class="card">Multi-session assistant continuity / 多輪對話連續性</article>
+            <article class="card">Cloud document memory organization / 雲端文件記憶組織</article>
+            <article class="card">Local private memory vault / 在地私有記憶庫</article>
+          </div>
+        </div>
+      </section>
+
+      <section id="founder" class="section">
+        <div class="container founder-card">
+          <h2>Founder / Governance Contact</h2>
+          <p><strong>Shen-Yao 888π / Wen-Yao Hsu</strong></p>
+          <p>
+            Governance, collaboration, and licensing contact are coordinated through the founder.
+            治理合作、授權與協作需求請透過創辦人窗口聯繫。
+          </p>
+          <a
+            class="btn btn-ghost"
+            href="https://hijo790401.github.io/shen-yao-portal/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Visit Founder Website / 前往創辦人網站</a
+          >
+        </div>
+      </section>
+    </main>
+
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <p>scbkr-memory-index · SCBKR 記憶庫索引</p>
+        <p>Founder: Shen-Yao 888π / Wen-Yao Hsu</p>
+        <p>This project open-sources the indexing layer, not the closed governance core.</p>
+      </div>
+    </footer>
+  </body>
+</html>
