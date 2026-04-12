@@ -1,0 +1,18 @@
+{
+  "schema": "SCBKR-1.0",
+  "items": [
+    {
+      "id": "mem-0001",
+      "S": "Example memory subject",
+      "C": "Context and cause",
+      "B": "Operational boundary",
+      "K": ["evidence-a", "evidence-b"],
+      "R": "Owner"
+    }
+  ],
+  "routes": {
+    "governance": ["compliance", "policy"],
+    "performance": ["latency", "incident"],
+    "continuity": ["session", "personal"]
+  }
+}
