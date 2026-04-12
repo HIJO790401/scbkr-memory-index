@@ -146,11 +146,19 @@
             <li>Use your own model stack / orchestration</li>
             <li>Reduce memory drift with structured indexing</li>
             <li>可選擇全本地保留資料，提升隱私控制</li>
+            <li>ZIP 內附 auto-index 指南與腳本，協助你快速建立 SCBKR 索引</li>
           </ul>
-          <p class="muted">Open indexing layer only, not the closed governance core.</p>
-          <a class="btn btn-primary" href="#" aria-label="Download ZIP placeholder">
-            Download ZIP (GitHub Release Placeholder)
-          </a>
+          <p class="muted">Open indexing layer only, not the closed governance core.
+            ZIP 內含可直接使用的 starter 結構、部署說明與 auto-index 腳本。</p>
+          <button
+            class="btn btn-primary"
+            id="downloadZipBtn"
+            type="button"
+            aria-label="Build and download SCBKR starter ZIP"
+          >
+            Download ZIP (Build in Browser)
+          </button>
+          <p id="zipStatus" class="muted">點擊後會在瀏覽器中打包 starter-package 再下載，避免二進位檔案相容問題。</p>
         </div>
       </section>
 
@@ -236,6 +244,9 @@ Personal notes   -> continuity lane</code></pre>
         </div>
       </section>
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+    <script src="./app.js"></script>
 
     <footer class="site-footer">
       <div class="container footer-wrap">
