@@ -9,6 +9,9 @@ It is designed for structured indexing, replayability, auditability, and routing
 
 SCBKR 記憶庫索引是面向長期 AI 記憶組織的**開放式索引層**，重點是結構化索引、可重播、可稽核與可路由。
 
+The public site is a fixed structured showcase (not a freeform playground).
+公開網站為固定結構化示範（不是自由輸入沙盒）。
+
 > This is **not** a full governance engine and does not include the closed governance/judgment core.
 >
 > 本專案**不是**完整治理引擎，不包含封閉治理/判斷核心。

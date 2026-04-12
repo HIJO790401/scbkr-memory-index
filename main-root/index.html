@@ -23,7 +23,6 @@
         <nav class="nav-links">
           <a href="#about">About</a>
           <a href="#routes">Memory Routes</a>
-          <a href="#interactive-demo">Interactive Demo</a>
           <a href="#download">Download Repo ZIP</a>
           <a href="#tutorial">Guide</a>
           <a href="#founder">Founder</a>
@@ -143,27 +142,42 @@
       </section>
 
 
-      <section id="interactive-demo" class="section">
+      <section id="showcase" class="section">
         <div class="container">
-          <h2>Interactive SCBKR Demo / 即時 SCBKR 示範</h2>
-          <div class="card interactive-card">
-            <p class="muted">
-              Paste a short paragraph and get a rule-based SCBKR suggestion. This is a demo suggestion only,
-              not a final governance judgment.
-              貼上一段短文後，系統會用簡單規則給出 SCBKR 建議；此結果僅為示範，不是最終治理判斷。
-            </p>
-            <label for="demoInput"><strong>Input / 輸入文本</strong></label>
-            <textarea id="demoInput" rows="6" placeholder="Example: We had repeated latency incidents after release, and ops lead must review evidence logs before rollback."></textarea>
-            <div class="btn-group">
-              <button id="analyzeBtn" class="btn btn-primary" type="button">Analyze SCBKR / 分析 SCBKR</button>
-            </div>
-            <div id="demoOutput" class="demo-output" aria-live="polite">
-              <p><strong>S (Subject):</strong> <span data-field="S">-</span></p>
-              <p><strong>C (Cause):</strong> <span data-field="C">-</span></p>
-              <p><strong>B (Boundary):</strong> <span data-field="B">-</span></p>
-              <p><strong>K (Key Evidence):</strong> <span data-field="K">-</span></p>
-              <p><strong>R (Responsibility):</strong> <span data-field="R">-</span></p>
-            </div>
+          <h2>SCBKR Showcase / SCBKR 展示示範</h2>
+          <p class="muted">
+            Fixed product showcase only: three static demonstrations for JSON, Google Drive flow, and OpenClaw local flow.
+            本區為固定示範展示：僅展示 JSON、Google Drive 與 OpenClaw 本地流程，不提供自由輸入沙盒。
+          </p>
+          <div class="grid three-col showcase-grid">
+            <article class="card">
+              <h3>A. JSON Showcase</h3>
+              <pre><code>{
+  "id": "showcase-001",
+  "S": "Incident memory: release rollback",
+  "C": "Latency spikes after deployment",
+  "B": "Must preserve audit trail",
+  "K": ["incident-log-44", "benchmark-report-v2"],
+  "R": "Ops Lead"
+}</code></pre>
+              <p class="route-flow">SCBKR Mapping → performance-memory-lane → Replay + Audit trace</p>
+            </article>
+            <article class="card">
+              <h3>B. Google Drive Showcase</h3>
+              <div class="workflow">Google Drive Folder → Document Set → SCBKR Index → Route → Replay</div>
+              <p>
+                Static conceptual workflow for cloud document indexing. No live Google API is used.
+                固定展示雲端文件索引流程，不呼叫真實 Google API。
+              </p>
+            </article>
+            <article class="card">
+              <h3>C. OpenClaw Local Showcase</h3>
+              <div class="workflow">Local Folder / Memory Files → SCBKR Index → Your Model → Recall / Route / Replay</div>
+              <p>
+                Local-first memory indexing for privacy-sensitive deployment with user-owned models and data.
+                強調本地優先、使用者自有模型與資料控制。
+              </p>
+            </article>
           </div>
         </div>
       </section>
@@ -314,8 +328,6 @@ Personal notes   -> continuity lane</code></pre>
       </section>
     </main>
 
-
-    <script src="./app.js"></script>
 
     <footer class="site-footer">
       <div class="container footer-wrap">
