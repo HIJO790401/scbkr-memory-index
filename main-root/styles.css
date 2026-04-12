@@ -271,3 +271,14 @@ body {
 .showcase-grid .card p {
   margin-top: 0.8rem;
 }
+
+
+.command-block {
+  background: #0e1b32;
+  color: #d9e4ff;
+  border-radius: 10px;
+  padding: 0.8rem;
+  overflow-x: auto;
+  white-space: pre;
+  font-size: 0.82rem;
+}

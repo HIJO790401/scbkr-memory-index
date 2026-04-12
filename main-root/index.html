@@ -239,8 +239,10 @@ memory-index/local-private/</code></pre>
             </article>
             <article class="card">
               <h3>Step 3 · 產生索引後接自己的模型</h3>
-              <pre><code>cd main-root/starter-package
-python3 tools/auto_index.py   --source ./memory-index   --output ./memory-index/index.scbkr.generated.json</code></pre>
+              <pre class="command-block"><code>cd main-root/starter-package
+python3 tools/auto_index.py \
+  --source ./memory-index \
+  --output ./memory-index/index.scbkr.generated.json</code></pre>
               <p>
                 接著用你自己的模型讀取這份索引做 recall / route / replay。
                 This is how you keep memory structured and less forgetful over sessions.
