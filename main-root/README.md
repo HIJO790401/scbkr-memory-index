@@ -13,10 +13,15 @@ python3 -m http.server 8080
 
 Then open: <http://localhost:8080>
 
+## Deploy (GitHub Pages)
+
+1. Push the repository to GitHub.
+2. Open **Settings → Pages**.
+3. Publish from branch/folder and set folder to `main-root`.
+
 ## Notes
 
 - No backend / no DB / no login / no production API.
 - Includes demo route UI for JSON, Google Drive workflow, and OpenClaw local workflow.
-- ZIP download button points to a real local starter package: browser-built ZIP from `starter-package/*` (via Download button).
-- Starter package includes `DEPLOY_AND_AUTOINDEX.md` and `tools/auto_index.py` to help users deploy and generate index files quickly.
-- No committed binary ZIP is required; ZIP is built in-browser to avoid binary compatibility issues in diffs/review pipelines.
+- Download button on homepage points to repository ZIP.
+- After unzipping, deploy the static frontend from `main-root/`.

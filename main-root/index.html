@@ -23,7 +23,8 @@
         <nav class="nav-links">
           <a href="#about">About</a>
           <a href="#routes">Memory Routes</a>
-          <a href="#download">Download ZIP</a>
+          <a href="#download">Download Repo ZIP</a>
+          <a href="#tutorial">Guide</a>
           <a href="#founder">Founder</a>
         </nav>
       </div>
@@ -39,6 +40,12 @@
               這是一個針對長期 AI 記憶組織的開放式索引框架，協助你把記憶做成可查、可重播、可稽核、可路由的結構。<br />
               This is an open indexing framework for long-term AI memory organization, designed for replayable,
               auditable, and routable memory structure.
+            </p>
+            <p class="lead">
+              完整定位：本專案提供「公開可擴充索引層」，幫助你整理跨會話與跨來源記憶，並且可以接你自己的模型；
+              不包含封閉治理與最終判斷核心。<br />
+              Full positioning: this project ships an open, extensible indexing layer for cross-session memory
+              organization and routing with your own models, while excluding the closed governance/judgment core.
             </p>
             <div class="btn-group">
               <a class="btn btn-primary" href="#routes">View Demo / 查看示範</a>
@@ -150,15 +157,50 @@
           </ul>
           <p class="muted">Open indexing layer only, not the closed governance core.
             ZIP 內含可直接使用的 starter 結構、部署說明與 auto-index 腳本。</p>
-          <button
+          <a
             class="btn btn-primary"
-            id="downloadZipBtn"
-            type="button"
-            aria-label="Build and download SCBKR starter ZIP"
+            href="https://github.com/hijo790401/scbkr-memory-index/archive/refs/heads/main.zip"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Download repository ZIP"
           >
-            Download ZIP (Build in Browser)
-          </button>
-          <p id="zipStatus" class="muted">點擊後會在瀏覽器中打包 starter-package 再下載，避免二進位檔案相容問題。</p>
+            Download Repository ZIP / 下載整個 Repo
+          </a>
+          <p class="muted">
+            下載後請進入 <code>main-root/</code> 部署靜態前端（GitHub Pages 建議設定該資料夾為發布根目錄）。
+            After download, deploy the static site from <code>main-root/</code>.
+          </p>
+        </div>
+      </section>
+
+
+      <section id="tutorial" class="section alt-bg">
+        <div class="container">
+          <h2>Quick Deployment Guide / 快速部署教學</h2>
+          <div class="grid three-col">
+            <article class="card">
+              <h3>Step 1 · Download Repo</h3>
+              <p>
+                Click <strong>Download Repository ZIP</strong>, unzip locally, and locate the
+                <code>main-root</code> folder.
+              </p>
+              <p>按下下載後解壓，找到 <code>main-root</code> 目錄，這就是你的靜態前端入口。</p>
+            </article>
+            <article class="card">
+              <h3>Step 2 · Run Locally</h3>
+              <pre><code>cd main-root
+python3 -m http.server 8080</code></pre>
+              <p>Open <code>http://localhost:8080</code> to preview. 在本機即可立即預覽。</p>
+            </article>
+            <article class="card">
+              <h3>Step 3 · Deploy to GitHub Pages</h3>
+              <p>
+                Push repo to GitHub → Settings → Pages → select branch/folder. Set folder to
+                <code>main-root</code> for this frontend.
+              </p>
+              <p>如果你不熟部署，照這 3 步做就可以上線靜態前端版。</p>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -245,8 +287,6 @@ Personal notes   -> continuity lane</code></pre>
       </section>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-    <script src="./app.js"></script>
 
     <footer class="site-footer">
       <div class="container footer-wrap">
