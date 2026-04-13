@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-Hant">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="SCBKR Memory Index - Open indexing framework for long-term AI memory organization."
+      content="SCBKR Memory Index - 開放式記憶索引層，強調責任鏈截斷與可執行上手流程。"
     />
     <title>SCBKR Memory Index | SCBKR 記憶庫索引</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,11 +21,11 @@
       <div class="container nav-wrap">
         <a class="brand" href="#top">SCBKR Memory Index</a>
         <nav class="nav-links">
-          <a href="#about">About</a>
-          <a href="#routes">Memory Routes</a>
-          <a href="#download">Download Repo ZIP</a>
-          <a href="#tutorial">Guide</a>
-          <a href="#founder">Founder</a>
+          <a href="#about">關於</a>
+          <a href="#run">快速執行</a>
+          <a href="#download">下載 ZIP</a>
+          <a href="#layers">開源/商業層</a>
+          <a href="#founder">聯絡</a>
         </nav>
       </div>
     </header>
@@ -37,155 +37,86 @@
             <p class="eyebrow">Open Memory Indexing Layer · 開放式記憶索引層</p>
             <h1>SCBKR 記憶庫索引<br />SCBKR Memory Index</h1>
             <p class="lead">
-              這是一個開放式記憶索引框架，協助你把跨來源資料整理成 SCBKR 結構，讓記憶更容易查詢、重播、稽核與路由。<br />
-              This open indexing framework helps you organize cross-source memory with SCBKR so it is easier to query,
-              replay, audit, and route.
+              這個專案只做一件事：把記憶整理成 SCBKR 結構，並在進入決策前做責任鏈截斷。<br />
+              This project focuses on one thing: structure memory with SCBKR and apply a responsibility-chain cutoff
+              before decision usage.
             </p>
             <p class="lead">
-              你可以先用 starter-package 跑出索引，再逐步接自己的查詢流程與模型。
-              本專案是 indexing layer，不是完整治理引擎。<br />
-              Start with the starter-package, generate an index, then connect your own query flow and model stack.
-              This repo is an indexing layer, not a full governance engine.
+              核心規則：<strong>沒有責任鏈，不進決策。</strong><br />
+              Core rule: <strong>No responsibility chain, no decision path.</strong>
             </p>
             <div class="btn-group">
-              <a class="btn btn-primary" href="#routes">View Demo / 查看示範</a>
+              <a class="btn btn-primary" href="#run">Run It Now / 立即執行</a>
               <a class="btn btn-secondary" href="#download">Download ZIP / 下載 ZIP</a>
-              <a
-                class="btn btn-ghost"
-                href="https://hijo790401.github.io/shen-yao-portal/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Visit Founder Website / 創辦人網站</a
-              >
               <a
                 class="btn btn-ghost"
                 href="https://github.com/HIJO790401/scbkr-memory-index"
                 target="_blank"
                 rel="noopener noreferrer"
-                >View GitHub Repo / GitHub 倉庫</a
+                >查看 GitHub 倉庫 / GitHub Repo</a
               >
             </div>
           </div>
           <div class="hero-panel">
             <h3>SCBKR Core Schema</h3>
             <ul>
-              <li><strong>S · Subject</strong><span>主體 / 事件核心對象</span></li>
+              <li><strong>S · Subject</strong><span>主體 / 記憶主題</span></li>
               <li><strong>C · Cause</strong><span>原因 / 背景脈絡</span></li>
-              <li><strong>B · Boundary</strong><span>邊界 / 限制條件</span></li>
-              <li><strong>K · Key Evidence</strong><span>關鍵證據 / 來源鏈</span></li>
-              <li><strong>R · Responsibility</strong><span>責任歸屬 / 追溯節點</span></li>
+              <li><strong>B · Boundary</strong><span>邊界 / 使用限制</span></li>
+              <li><strong>K · Key Evidence</strong><span>證據 / 可驗證來源</span></li>
+              <li><strong>R · Responsibility</strong><span>責任 / 人類承擔節點</span></li>
             </ul>
-            <p>Open indexing layer only · 僅開放索引層，不包含封閉治理判斷核心</p>
+            <p>Open indexing layer only · 僅開放索引層，不含封閉治理核心</p>
           </div>
         </div>
       </section>
 
       <section id="about" class="section">
         <div class="container">
-          <h2>About SCBKR / 關於 SCBKR</h2>
+          <h2>About / 關於這個專案</h2>
           <div class="grid two-col">
             <article class="card">
-              <h3>What it is / 是什麼</h3>
+              <h3>What it is / 這是什麼</h3>
               <p>
-                SCBKR uses five fields—Subject, Cause, Boundary, Key Evidence, Responsibility—to describe each memory
-                item in a consistent, reviewable way.
-              </p>
-              <p>
-                SCBKR 用五個欄位描述每筆記憶：Subject、Cause、Boundary、Key Evidence、Responsibility，
-                讓資料更一致、可追溯、可檢查。
+                可下載、可執行的記憶索引層，讓你用 SCBKR 管理記憶並保留責任鏈。
+                Downloadable and runnable memory indexing layer with explicit responsibility trace.
               </p>
             </article>
             <article class="card">
-              <h3>Why not RAG-only / 為何不只做 RAG</h3>
+              <h3>What it is not / 這不是什麼</h3>
               <p>
-                Traditional RAG finds related text chunks. SCBKR adds structure around why the memory exists, what
-                boundaries apply, what evidence supports it, and who is responsible.
-              </p>
-              <p>
-                所以這個專案重點是「可維護的記憶索引層」，不是最終判斷系統；你可以在其上接自己的模型與規則。
+                不是完整治理引擎、不是封閉判斷核心、不是自動責任判定器。
+                It is not a full governance engine, not a closed judgment core, and not automatic responsibility adjudication.
               </p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="routes" class="section alt-bg">
+      <section id="run" class="section alt-bg">
         <div class="container">
-          <h2>Memory Routes / 記憶路由示範</h2>
+          <h2>Run in 3 Steps / 三步執行</h2>
           <div class="grid three-col">
-            <article class="card route-card">
-              <h3>Route A · JSON Demo</h3>
-              <p>以 JSON 節點展示 SCBKR 記憶索引、重播與稽核。</p>
-              <pre><code>{
-  "id": "mem-1024",
-  "S": "Client onboarding risk",
-  "C": "Policy mismatch in intake",
-  "B": "No legal advice output",
-  "K": ["meeting-notes-032", "policy-v4"],
-  "R": "Ops Lead"
-}</code></pre>
-              <div class="route-flow">JSON Memory → SCBKR Index → Route → Replay / Audit</div>
+            <article class="card">
+              <h3>Step 1 · 下載後進入</h3>
+              <pre class="command-block"><code>cd main-root/starter-package</code></pre>
+              <p>之後所有指令都在此資料夾執行。</p>
             </article>
-            <article class="card route-card">
-              <h3>Route B · Google Drive Demo</h3>
-              <p>
-                使用 Google Drive 資料夾與文件作為記憶來源，透過 SCBKR 欄位進行索引，不需真實 API 即可理解完整流程。
-              </p>
-              <div class="workflow">Google Drive Folder → Document Set → SCBKR Index → Route → Replay</div>
-              <p class="muted">
-                Users can organize docs in Drive, then map each doc to S/C/B/K/R for cloud-compatible memory routing.
-              </p>
+            <article class="card">
+              <h3>Step 2 · 一鍵產生 + 截斷</h3>
+              <pre class="command-block"><code>./run_open_layer.sh</code></pre>
+              <p>會產生 generated/gate-report/decision-ready 三份輸出。</p>
             </article>
-            <article class="card route-card">
-              <h3>Route C · OpenClaw Local Demo</h3>
-              <p>
-                本地私有路由：本機資料夾與記憶檔案可先做 SCBKR 索引，再交給你的本地模型做 Recall / Route / Replay。
-              </p>
-              <div class="workflow">Local Folder / Memory Files → SCBKR Index → Your Model → Recall / Route / Replay</div>
-              <p class="muted">Local-first control for privacy-sensitive teams and personal memory vault deployments.</p>
+            <article class="card">
+              <h3>Step 3 · 啟動本地 API</h3>
+              <pre class="command-block"><code>python3 services/scbkr_api_server.py \
+  --index ./memory-index/index.scbkr.decision-ready.json \
+  --port 9000</code></pre>
+              <p>預設只回傳 decision-ready 記憶。</p>
             </article>
           </div>
-        </div>
-      </section>
-
-
-      <section id="showcase" class="section">
-        <div class="container">
-          <h2>SCBKR Showcase / SCBKR 展示示範</h2>
-          <p class="muted">
-            Fixed product showcase only: three static demonstrations for JSON, Google Drive flow, and OpenClaw local flow.
-            本區為固定示範展示：僅展示 JSON、Google Drive 與 OpenClaw 本地流程，不提供自由輸入沙盒。
-          </p>
-          <div class="grid three-col showcase-grid">
-            <article class="card">
-              <h3>A. JSON Showcase</h3>
-              <pre><code>{
-  "id": "showcase-001",
-  "S": "Incident memory: release rollback",
-  "C": "Latency spikes after deployment",
-  "B": "Must preserve audit trail",
-  "K": ["incident-log-44", "benchmark-report-v2"],
-  "R": "Ops Lead"
-}</code></pre>
-              <p class="route-flow">SCBKR Mapping → performance-memory-lane → Replay + Audit trace</p>
-            </article>
-            <article class="card">
-              <h3>B. Google Drive Showcase</h3>
-              <div class="workflow">Google Drive Folder → Document Set → SCBKR Index → Route → Replay</div>
-              <p>
-                Static conceptual workflow for cloud document indexing. No live Google API is used.
-                固定展示雲端文件索引流程，不呼叫真實 Google API。
-              </p>
-            </article>
-            <article class="card">
-              <h3>C. OpenClaw Local Showcase</h3>
-              <div class="workflow">Local Folder / Memory Files → SCBKR Index → Your Model → Recall / Route / Replay</div>
-              <p>
-                Local-first memory indexing for privacy-sensitive deployment with user-owned models and data.
-                強調本地優先、使用者自有模型與資料控制。
-              </p>
-            </article>
-          </div>
+          <pre class="command-block"><code>curl http://127.0.0.1:9000/health
+curl -X POST http://127.0.0.1:9000/query -H "Content-Type: application/json" -d '{"query":"policy risk","top_k":3}'</code></pre>
         </div>
       </section>
 
@@ -193,18 +124,9 @@
         <div class="container cta-card">
           <h2>Download ZIP / 下載 ZIP</h2>
           <p>
-            下載後你會拿到可直接執行的 starter-package、範例資料夾與索引腳本。
-            After download, you get a runnable starter package, sample folders, and indexing scripts.
+            下載後可直接執行 open layer，先索引、再責任鏈截斷、再本地查詢。
+            Download and run immediately: index -> human gate -> local query.
           </p>
-          <ul>
-            <li>Run `auto_index.py` to generate SCBKR index JSON</li>
-            <li>Optionally run experimental utilities for lookup / R suggestions / prompt payload</li>
-            <li>Connect the output to your own model stack</li>
-            <li>可先在本地運作，保留資料控制權</li>
-            <li>附 starter 結構，幫助你在幾分鐘內跑通流程</li>
-          </ul>
-          <p class="muted">Open indexing layer only, not the closed governance core.
-            若你需要完整治理判斷或企業合規流程，需在此層之上自行整合。</p>
           <a
             class="btn btn-primary"
             href="https://github.com/hijo790401/scbkr-memory-index/archive/refs/heads/main.zip"
@@ -214,248 +136,39 @@
           >
             Download Repository ZIP / 下載整個 Repo
           </a>
-          <p class="muted">
-            下載後如果要「實際使用記憶索引」，請直接進入 <code>main-root/starter-package/</code>。
-            For real indexing usage, go directly to <code>main-root/starter-package/</code>.
-          </p>
         </div>
       </section>
 
-
-      <section id="tutorial" class="section alt-bg">
-        <div class="container">
-          <h2>Quick Usage Guide / 快速使用指南</h2>
-          <div class="grid three-col">
-            <article class="card">
-              <h3>Step 1 · 進入 starter-package</h3>
-              <p>
-                下載 Repo ZIP 解壓後，真正要使用記憶索引的目錄是
-                <code>main-root/starter-package/memory-index/</code>。
-              </p>
-              <p>
-                Use this folder first. The frontend files are for website display, not indexing execution.
-              </p>
-            </article>
-            <article class="card">
-              <h3>Step 2 · 放入你的記憶資料</h3>
-              <p>把你的檔案放進以下三個子目錄：</p>
-              <pre><code>memory-index/json/
-memory-index/drive-import/
-memory-index/local-private/</code></pre>
-              <p>這樣可用同一套 SCBKR 結構管理不同來源記憶，降低遺忘與漂移。</p>
-            </article>
-            <article class="card">
-              <h3>Step 3 · 產生索引 → 人工責任閘門 → 本地查詢</h3>
-              <pre class="command-block"><code>cd main-root/starter-package
-python3 tools/auto_index.py \
-  --source ./memory-index \
-  --output ./memory-index/index.scbkr.generated.json
-
-python3 tools/scbkr_human_gate.py \
-  --index ./memory-index/index.scbkr.generated.json \
-  --report ./memory-index/index.scbkr.gate-report.json \
-  --decision-ready-output ./memory-index/index.scbkr.decision-ready.json
-
-python3 services/scbkr_api_server.py \
-  --index ./memory-index/index.scbkr.decision-ready.json \
-  --port 9000</code></pre>
-              <p>
-                這個流程會先做「責任鏈截斷」：未達 decision-ready 的記憶不進入查詢服務。
-                This flow adds a human responsibility gate so non-decision-ready memory does not enter query service.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section alt-bg" id="features">
-        <div class="container">
-          <h2>Features / 功能亮點</h2>
-          <div class="grid four-col">
-            <article class="card feature">SCBKR-structured indexing / SCBKR 結構化索引</article>
-            <article class="card feature">Replay-ready memory flow / 可重播記憶流程</article>
-            <article class="card feature">Responsibility trace support / 責任追蹤支援</article>
-            <article class="card feature">SCBKR schema baseline / SCBKR 基礎欄位架構</article>
-            <article class="card feature">Cross-source folder support / 跨來源資料夾支援</article>
-            <article class="card feature">Local-first usage path / 本地優先使用路徑</article>
-            <article class="card feature">Human-readable index output / 人類可讀索引輸出</article>
-            <article class="card feature">Extendable starter skeleton / 可擴充起始骨架</article>
-          </div>
-        </div>
-      </section>
-
-
-      <section class="section alt-bg" id="open-commercial">
+      <section class="section alt-bg" id="layers">
         <div class="container">
           <h2>Open Layer vs Commercial Layer / 開源層與商業層</h2>
           <div class="grid two-col">
             <article class="card">
               <h3>Open Layer (Public Repo)</h3>
-              <p class="muted">可下載、可執行、可擴充的公開索引層。</p>
               <ul>
-                <li>SCBKR indexing (`auto_index.py`)</li>
-                <li>Human responsibility cutoff (`scbkr_human_gate.py`)</li>
-                <li>Local REST query API (`scbkr_api_server.py`)</li>
+                <li>auto_index.py</li>
+                <li>scbkr_human_gate.py</li>
+                <li>scbkr_api_server.py</li>
               </ul>
             </article>
             <article class="card">
               <h3>Commercial Layer (Licensed)</h3>
-              <p class="muted">不在公開 repo 內，針對企業導入與治理需求。</p>
               <ul>
-                <li>SCBKR governance weights & parameter engine</li>
-                <li>White-box rules on top of model outputs</li>
-                <li>Enterprise audit strategy and onboarding support</li>
+                <li>治理權重與參數引擎</li>
+                <li>模型上層白盒規則</li>
+                <li>企業審計與導入支援</li>
               </ul>
             </article>
           </div>
-          <p class="roadmap-cta">
-            Core rule: <strong>No responsibility chain, no decision path.</strong>
-            核心規則：<strong>沒有責任鏈，不進決策。</strong>
-          </p>
-        </div>
-      </section>
-
-
-      <section class="section alt-bg" id="roadmap-improvements">
-        <div class="container">
-          <h2>Roadmap & Improvements / 改進路線圖</h2>
-          <p class="muted">
-            Planned directions for the open indexing layer. These items are in planning/prototype stages and are not
-            presented as completed enterprise features.
-            以下為開放式索引層的規劃方向，屬於規劃或原型階段，非既有完成能力。
-          </p>
-          <div class="grid roadmap-grid">
-            <article class="card roadmap-card">
-              <div class="roadmap-head">
-                <span class="roadmap-icon">🚀</span>
-                <span class="priority-badge p1">P1</span>
-              </div>
-              <h3>Getting Started DX</h3>
-              <p class="muted">開發者上手體驗優化</p>
-              <p>Clarify what to do after indexing so first-time users can finish a full run in minutes.</p>
-              <div class="roadmap-meta">
-                <span class="status-badge">In Planning / 規劃中</span>
-                <span class="timeline">Target: Q2 2026</span>
-              </div>
-            </article>
-            <article class="card roadmap-card">
-              <div class="roadmap-head">
-                <span class="roadmap-icon">🔌</span>
-                <span class="priority-badge p2">P2</span>
-              </div>
-              <h3>LLM Bridge Adapter</h3>
-              <p class="muted">最小可行 LLM 橋接層</p>
-              <p>Prototype bridge to pass SCBKR retrieval results into OpenAI / Claude / generic LLM workflows.</p>
-              <div class="roadmap-meta">
-                <span class="status-badge">In Planning / 規劃中</span>
-                <span class="timeline">Target: Q2–Q3 2026</span>
-              </div>
-            </article>
-            <article class="card roadmap-card">
-              <div class="roadmap-head">
-                <span class="roadmap-icon">⚡</span>
-                <span class="priority-badge p3">P3</span>
-              </div>
-              <h3>Performance Layer</h3>
-              <p class="muted">索引與查詢效能優化</p>
-              <p>Expected shift from linear scan toward indexed lookup with a target of sub-100ms on typical local data.</p>
-              <div class="roadmap-meta">
-                <span class="status-badge">In Planning / 規劃中</span>
-                <span class="timeline">Target: Q3 2026</span>
-              </div>
-            </article>
-            <article class="card roadmap-card">
-              <div class="roadmap-head">
-                <span class="roadmap-icon">🧭</span>
-                <span class="priority-badge p4">P4</span>
-              </div>
-              <h3>Responsibility Recommender</h3>
-              <p class="muted">責任欄位候選建議</p>
-              <p>Heuristic candidate suggestions for R field while keeping final responsibility confirmation by users.</p>
-              <div class="roadmap-meta">
-                <span class="status-badge">In Planning / 規劃中</span>
-                <span class="timeline">Target: Q3 2026</span>
-              </div>
-            </article>
-            <article class="card roadmap-card">
-              <div class="roadmap-head">
-                <span class="roadmap-icon">🧩</span>
-                <span class="priority-badge p5">P5</span>
-              </div>
-              <h3>Enterprise Templates</h3>
-              <p class="muted">產業模板包規劃</p>
-              <p>Future template packs for finance, healthcare, SaaS, and AI safety as optional starter structures.</p>
-              <div class="roadmap-meta">
-                <span class="status-badge">In Planning / 規劃中</span>
-                <span class="timeline">Target: Post-Q3 2026</span>
-              </div>
-            </article>
-          </div>
-          <p class="roadmap-cta">
-            <a href="https://github.com/hijo790401/scbkr-memory-index" target="_blank" rel="noopener noreferrer"
-              >Track Progress on GitHub</a
-            >
-            · Star the project for updates.
-          </p>
-        </div>
-      </section>
-
-      <section class="section" id="schema">
-        <div class="container">
-          <h2>Schema & Examples / 架構與範例</h2>
-          <div class="grid two-col">
-            <article class="card">
-              <h3>SCBKR JSON Example</h3>
-              <pre><code>{
-  "memory_item": {
-    "S": "Project Alpha design decision",
-    "C": "Latency incidents in release candidate",
-    "B": "Must stay under 200ms P95",
-    "K": ["benchmark-2026-03-18", "incident-review-77"],
-    "R": "Platform Architect"
-  },
-  "route": "performance-memory-lane",
-  "replay_id": "rp-4471"
-}</code></pre>
-            </article>
-            <article class="card">
-              <h3>Memory Folder & Routing</h3>
-              <pre><code>/memory-index/
-  /json/
-  /drive-import/
-  /local-private/
-  index.scbkr.json
-
-Routing example:
-Compliance docs  -> governance lane
-Engineering logs -> performance lane
-Personal notes   -> continuity lane</code></pre>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section alt-bg" id="use-cases">
-        <div class="container">
-          <h2>Use Cases / 實際使用情境</h2>
-          <div class="grid three-col">
-            <article class="card">Personal AI memory organization / 個人 AI 記憶整理</article>
-            <article class="card">Project archive indexing / 專案檔案索引化</article>
-            <article class="card">Multi-session assistant continuity / 多輪對話連續性</article>
-            <article class="card">Cloud document memory organization / 雲端文件記憶組織</article>
-            <article class="card">Local private memory vault / 在地私有記憶庫</article>
-          </div>
+          <p class="roadmap-cta">沒有責任鏈，不進決策。/ No responsibility chain, no decision path.</p>
         </div>
       </section>
 
       <section id="founder" class="section">
         <div class="container founder-card">
-          <h2>Founder / Governance Contact</h2>
+          <h2>Founder / 聯絡窗口</h2>
           <p><strong>Shen-Yao 888π / Wen-Yao Hsu</strong></p>
-          <p>
-            For collaboration, licensing, or governance discussions, please contact the founder.
-            協作、授權或治理相關討論，請透過創辦人窗口聯繫。
-          </p>
+          <p>合作、授權與商業導入請透過創辦人窗口聯絡。</p>
           <a
             class="btn btn-ghost"
             href="https://hijo790401.github.io/shen-yao-portal/"
@@ -467,11 +180,9 @@ Personal notes   -> continuity lane</code></pre>
       </section>
     </main>
 
-
     <footer class="site-footer">
       <div class="container footer-wrap">
         <p>scbkr-memory-index · SCBKR 記憶庫索引</p>
-        <p>Founder: Shen-Yao 888π / Wen-Yao Hsu</p>
         <p>This project open-sources the indexing layer, not the closed governance core.</p>
       </div>
     </footer>
