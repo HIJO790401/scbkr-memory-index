@@ -23,6 +23,7 @@
         <nav class="nav-links">
           <a href="#about">關於 / About</a>
           <a href="#run">快速執行 / Run</a>
+          <a href="#routes">三路徑 / 3 Routes</a>
           <a href="#download">下載 ZIP / Download</a>
           <a href="#layers">開源/商業層 / Layers</a>
           <a href="#founder">聯絡 / Contact</a>
@@ -113,6 +114,38 @@
   --index ./memory-index/index.scbkr.decision-ready.json \
   --port 9000</code></pre>
               <p>預設只回傳 decision-ready 記憶。 By default, only decision-ready memory is returned.</p>
+            </article>
+          </div>
+          <pre class="command-block"><code>curl http://127.0.0.1:9000/health
+curl -X POST http://127.0.0.1:9000/query -H "Content-Type: application/json" -d '{"query":"policy risk","top_k":3}'</code></pre>
+        </div>
+      </section>
+
+
+      <section id="routes" class="section">
+        <div class="container">
+          <h2>3 Practical Routes / 三種實際路徑</h2>
+          <div class="grid three-col">
+            <article class="card">
+              <h3>Route A · JSON Route</h3>
+              <p>
+                直接把 JSON / 文字檔放進 <code>memory-index/json/</code>，先完成索引與責任鏈截斷。<br />
+                Put JSON/text files into <code>memory-index/json/</code> and run index + responsibility gate first.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Route B · Google Drive Export Route</h3>
+              <p>
+                先把 Google Drive 內容匯出到 <code>memory-index/drive-import/</code> 再索引；目前是檔案匯入流程，不是 live API 直連。<br />
+                Export Google Drive files to <code>memory-index/drive-import/</code> first; this is file-import flow, not live API integration.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Route C · Local Model Route</h3>
+              <p>
+                本地資料先經過 <code>scbkr_human_gate.py</code>，再由本地模型使用 decision-ready 索引。<br />
+                Run local data through <code>scbkr_human_gate.py</code>, then feed decision-ready index to your local model.
+              </p>
             </article>
           </div>
           <pre class="command-block"><code>curl http://127.0.0.1:9000/health
