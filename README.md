@@ -60,6 +60,38 @@ python3 tools/auto_index.py --source ./memory-index --output ./memory-index/inde
 
 Use files under `main-root/starter-package/memory-index/` as your working memory source folders.
 
+### Experimental utilities (initial skeletons) / 實驗性工具（初始骨架）
+
+Under `main-root/starter-package/`, the project now includes three **experimental** utilities for extension work:
+
+- `tools/build_optimized_index.py`: builds lookup maps (`route`, `date`, `keyword`, `R`) from generated index JSON.
+- `tools/r_field_recommender.py`: outputs heuristic **suggestion candidates** for `R` (user review required).
+- `services/scbkr_llm_bridge.py`: generic bridge helpers (`load_index`, `search_memories`, `build_prompt_payload`) without direct provider API calls.
+
+在 `main-root/starter-package/` 內新增三個**實驗性**工具，作為後續擴充起點：
+
+- `tools/build_optimized_index.py`：從既有索引建立 `route/date/keyword/R` 查找表。
+- `tools/r_field_recommender.py`：輸出 `R` 欄位候選建議（需人工審閱）。
+- `services/scbkr_llm_bridge.py`：提供橋接骨架函式（不直接串接 OpenAI/Claude API）。
+
+Quick run examples / 快速範例：
+
+```bash
+cd main-root/starter-package
+python3 tools/build_optimized_index.py \
+  --source ./memory-index/index.scbkr.generated.json \
+  --output ./memory-index/index.scbkr.optimized.json
+
+python3 tools/r_field_recommender.py \
+  --source ./memory-index/index.scbkr.generated.json \
+  --output ./memory-index/r-field.suggestions.json
+
+python3 services/scbkr_llm_bridge.py \
+  --index ./memory-index/index.scbkr.generated.json \
+  --query "onboarding policy risk" \
+  --top-k 3
+```
+
 ## Roadmap & Planned Improvements / 改進路線圖
 
 The following items are **planned improvements** for the open indexing layer. They are not shipped as completed capabilities yet.

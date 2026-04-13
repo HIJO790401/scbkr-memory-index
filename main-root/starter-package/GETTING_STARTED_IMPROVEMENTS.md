@@ -95,11 +95,24 @@ The generated `index.scbkr.generated.json` item will look like:
 4. 把過濾結果餵給你的模型提示詞
 
 ```bash
-# planned future command (not implemented yet)
-# python3 tools/query_index.py --index ./memory-index/index.scbkr.generated.json --q "onboarding risk"
+# Experimental utility: build lookup-oriented optimized index
+python3 tools/build_optimized_index.py \
+  --source ./memory-index/index.scbkr.generated.json \
+  --output ./memory-index/index.scbkr.optimized.json
+
+# Experimental utility: generate R-field suggestion candidates (review required)
+python3 tools/r_field_recommender.py \
+  --source ./memory-index/index.scbkr.generated.json \
+  --output ./memory-index/r-field.suggestions.json
+
+# Experimental utility: build generic prompt payload (no direct provider API call)
+python3 services/scbkr_llm_bridge.py \
+  --index ./memory-index/index.scbkr.generated.json \
+  --query "onboarding policy risk" \
+  --top-k 3
 
 # planned future command (not implemented yet)
-# python3 tools/llm_bridge.py --index ./memory-index/index.scbkr.generated.json --provider openai --question "What changed?"
+# python3 tools/query_index.py --index ./memory-index/index.scbkr.generated.json --q "onboarding risk"
 ```
 
 ---
@@ -130,6 +143,6 @@ python3 tools/auto_index.py \
 ```
 
 ### Q4. Is this already a complete LLM SDK?
-- No. LLM bridge/query adapter is planned as incremental prototype work.
+- No. `services/scbkr_llm_bridge.py` is an experimental bridge skeleton that only prepares payloads and does not call provider APIs directly.
 
-- 不是。LLM bridge/query adapter 目前屬於規劃中的漸進式原型工作。
+- 不是。`services/scbkr_llm_bridge.py` 目前僅是實驗性橋接骨架，用於準備 payload，並不直接呼叫供應商 API。
