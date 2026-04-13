@@ -34,18 +34,18 @@
       <section class="hero section">
         <div class="container hero-grid">
           <div>
-            <p class="eyebrow">Open AI Memory Infrastructure · 開放式 AI 記憶基礎架構</p>
+            <p class="eyebrow">Open Memory Indexing Layer · 開放式記憶索引層</p>
             <h1>SCBKR 記憶庫索引<br />SCBKR Memory Index</h1>
             <p class="lead">
-              這是一個針對長期 AI 記憶組織的開放式索引框架，協助你把記憶做成可查、可重播、可稽核、可路由的結構。<br />
-              This is an open indexing framework for long-term AI memory organization, designed for replayable,
-              auditable, and routable memory structure.
+              這是一個開放式記憶索引框架，協助你把跨來源資料整理成 SCBKR 結構，讓記憶更容易查詢、重播、稽核與路由。<br />
+              This open indexing framework helps you organize cross-source memory with SCBKR so it is easier to query,
+              replay, audit, and route.
             </p>
             <p class="lead">
-              完整定位：本專案提供「公開可擴充索引層」，幫助你整理跨會話與跨來源記憶，並且可以接你自己的模型；
-              不包含封閉治理與最終判斷核心。<br />
-              Full positioning: this project ships an open, extensible indexing layer for cross-session memory
-              organization and routing with your own models, while excluding the closed governance/judgment core.
+              你可以先用 starter-package 跑出索引，再逐步接自己的查詢流程與模型。
+              本專案是 indexing layer，不是完整治理引擎。<br />
+              Start with the starter-package, generate an index, then connect your own query flow and model stack.
+              This repo is an indexing layer, not a full governance engine.
             </p>
             <div class="btn-group">
               <a class="btn btn-primary" href="#routes">View Demo / 查看示範</a>
@@ -87,22 +87,22 @@
             <article class="card">
               <h3>What it is / 是什麼</h3>
               <p>
-                SCBKR is a structured memory indexing framework: Subject, Cause, Boundary, Key Evidence,
-                Responsibility. It standardizes how memory units are organized and routed over long AI sessions.
+                SCBKR uses five fields—Subject, Cause, Boundary, Key Evidence, Responsibility—to describe each memory
+                item in a consistent, reviewable way.
               </p>
               <p>
-                SCBKR 是一種結構化記憶索引框架，將長期 AI 記憶拆成 Subject、Cause、Boundary、Key Evidence、Responsibility
-                五欄位，讓記憶單元具備一致性與可追溯性。
+                SCBKR 用五個欄位描述每筆記憶：Subject、Cause、Boundary、Key Evidence、Responsibility，
+                讓資料更一致、可追溯、可檢查。
               </p>
             </article>
             <article class="card">
               <h3>Why not RAG-only / 為何不只做 RAG</h3>
               <p>
-                Traditional RAG retrieval focuses on matching chunks. SCBKR focuses on indexing logic,
-                replayability, auditability, and routing behavior so memory can remain coherent across time.
+                Traditional RAG finds related text chunks. SCBKR adds structure around why the memory exists, what
+                boundaries apply, what evidence supports it, and who is responsible.
               </p>
               <p>
-                本專案重點是「索引結構」，不是封閉治理或判斷引擎；它提供可重播、可稽核、可路由的公開層，協助你對接自己的模型。
+                所以這個專案重點是「可維護的記憶索引層」，不是最終判斷系統；你可以在其上接自己的模型與規則。
               </p>
             </article>
           </div>
@@ -193,18 +193,18 @@
         <div class="container cta-card">
           <h2>Download ZIP / 下載 ZIP</h2>
           <p>
-            下載開放式索引層 ZIP，直接在本地建立自己的記憶索引資料夾，並接入你自己的模型。
-            Download the open indexing layer as a ZIP package and run locally with your own models.
+            下載後你會拿到可直接執行的 starter-package、範例資料夾與索引腳本。
+            After download, you get a runnable starter package, sample folders, and indexing scripts.
           </p>
           <ul>
-            <li>建立自己的 indexed memory folder</li>
-            <li>Use your own model stack / orchestration</li>
-            <li>Reduce memory drift with structured indexing</li>
-            <li>可選擇全本地保留資料，提升隱私控制</li>
-            <li>ZIP 內附 auto-index 指南與腳本，協助你快速建立 SCBKR 索引</li>
+            <li>Run `auto_index.py` to generate SCBKR index JSON</li>
+            <li>Optionally run experimental utilities for lookup / R suggestions / prompt payload</li>
+            <li>Connect the output to your own model stack</li>
+            <li>可先在本地運作，保留資料控制權</li>
+            <li>附 starter 結構，幫助你在幾分鐘內跑通流程</li>
           </ul>
           <p class="muted">Open indexing layer only, not the closed governance core.
-            ZIP 內含可直接使用的 starter 結構、部署說明與 auto-index 腳本。</p>
+            若你需要完整治理判斷或企業合規流程，需在此層之上自行整合。</p>
           <a
             class="btn btn-primary"
             href="https://github.com/hijo790401/scbkr-memory-index/archive/refs/heads/main.zip"
@@ -227,13 +227,13 @@
           <h2>Quick Usage Guide / 快速使用指南</h2>
           <div class="grid three-col">
             <article class="card">
-              <h3>Step 1 · 找到使用資料夾</h3>
+              <h3>Step 1 · 進入 starter-package</h3>
               <p>
                 下載 Repo ZIP 解壓後，真正要使用記憶索引的目錄是
                 <code>main-root/starter-package/memory-index/</code>。
               </p>
               <p>
-                This is the working folder for memory indexing, not the frontend page folder.
+                Use this folder first. The frontend files are for website display, not indexing execution.
               </p>
             </article>
             <article class="card">
@@ -245,14 +245,14 @@ memory-index/local-private/</code></pre>
               <p>這樣可用同一套 SCBKR 結構管理不同來源記憶，降低遺忘與漂移。</p>
             </article>
             <article class="card">
-              <h3>Step 3 · 產生索引後接自己的模型</h3>
+              <h3>Step 3 · 產生索引並檢查結果</h3>
               <pre class="command-block"><code>cd main-root/starter-package
 python3 tools/auto_index.py \
   --source ./memory-index \
   --output ./memory-index/index.scbkr.generated.json</code></pre>
               <p>
-                接著用你自己的模型讀取這份索引做 recall / route / replay。
-                This is how you keep memory structured and less forgetful over sessions.
+                先確認 JSON 已成功產生，再接自己的查詢流程與模型。
+                Start by verifying the JSON output, then integrate your own query flow and model stack.
               </p>
             </article>
           </div>
@@ -263,14 +263,14 @@ python3 tools/auto_index.py \
         <div class="container">
           <h2>Features / 功能亮點</h2>
           <div class="grid four-col">
-            <article class="card feature">Structured memory indexing / 結構化記憶索引</article>
-            <article class="card feature">Replayable recall / 可重播召回</article>
-            <article class="card feature">Responsibility-aware organization / 責任可追溯</article>
-            <article class="card feature">SCBKR schema-ready / SCBKR 架構標準化</article>
-            <article class="card feature">Cloud-compatible organization / 雲端相容組織</article>
-            <article class="card feature">Local/private deployment / 本地私有部署</article>
-            <article class="card feature">Human-readable audit trail / 人類可讀稽核軌跡</article>
-            <article class="card feature">Extendable ZIP starter package / 可延展 ZIP 起始包</article>
+            <article class="card feature">SCBKR-structured indexing / SCBKR 結構化索引</article>
+            <article class="card feature">Replay-ready memory flow / 可重播記憶流程</article>
+            <article class="card feature">Responsibility trace support / 責任追蹤支援</article>
+            <article class="card feature">SCBKR schema baseline / SCBKR 基礎欄位架構</article>
+            <article class="card feature">Cross-source folder support / 跨來源資料夾支援</article>
+            <article class="card feature">Local-first usage path / 本地優先使用路徑</article>
+            <article class="card feature">Human-readable index output / 人類可讀索引輸出</article>
+            <article class="card feature">Extendable starter skeleton / 可擴充起始骨架</article>
           </div>
         </div>
       </section>
@@ -292,7 +292,7 @@ python3 tools/auto_index.py \
               </div>
               <h3>Getting Started DX</h3>
               <p class="muted">開發者上手體驗優化</p>
-              <p>Clarify next-step flow after indexing so users can run and verify results within minutes.</p>
+              <p>Clarify what to do after indexing so first-time users can finish a full run in minutes.</p>
               <div class="roadmap-meta">
                 <span class="status-badge">In Planning / 規劃中</span>
                 <span class="timeline">Target: Q2 2026</span>
@@ -305,7 +305,7 @@ python3 tools/auto_index.py \
               </div>
               <h3>LLM Bridge Adapter</h3>
               <p class="muted">最小可行 LLM 橋接層</p>
-              <p>Prototype adapter to pass SCBKR retrieval results into OpenAI, Claude, and generic LLM workflows.</p>
+              <p>Prototype bridge to pass SCBKR retrieval results into OpenAI / Claude / generic LLM workflows.</p>
               <div class="roadmap-meta">
                 <span class="status-badge">In Planning / 規劃中</span>
                 <span class="timeline">Target: Q2–Q3 2026</span>
@@ -413,8 +413,8 @@ Personal notes   -> continuity lane</code></pre>
           <h2>Founder / Governance Contact</h2>
           <p><strong>Shen-Yao 888π / Wen-Yao Hsu</strong></p>
           <p>
-            Governance, collaboration, and licensing contact are coordinated through the founder.
-            治理合作、授權與協作需求請透過創辦人窗口聯繫。
+            For collaboration, licensing, or governance discussions, please contact the founder.
+            協作、授權或治理相關討論，請透過創辦人窗口聯繫。
           </p>
           <a
             class="btn btn-ghost"

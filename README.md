@@ -1,83 +1,100 @@
 # scbkr-memory-index
 
-Public-facing frontend project for **SCBKR Memory Index**.
+SCBKR Memory Index is an open-source **indexing layer** for long-term memory organization.
+SCBKR 記憶庫索引是一個開源的長期記憶**索引層**。
 
-## What this is / 專案定位
+It helps people structure memory into SCBKR fields (S/C/B/K/R) so memory can be queried, replayed, audited, and routed.
+它把記憶整理成 SCBKR（S/C/B/K/R）欄位，讓資料更容易查詢、重播、稽核與路由。
 
-SCBKR Memory Index is an **open indexing layer** for long-term AI memory organization.
-It is designed for structured indexing, replayability, auditability, and routing.
+---
 
-SCBKR 記憶庫索引是面向長期 AI 記憶組織的**開放式索引層**，重點是結構化索引、可重播、可稽核與可路由。
+## What this project is / 這個專案是什麼
 
-The public site is a fixed structured showcase (not a freeform playground).
-公開網站為固定結構化示範（不是自由輸入沙盒）。
+- An open indexing layer for memory files across sessions and sources.
+- A practical starter package with runnable scripts.
+- A public, extendable foundation you can connect to your own model stack.
 
-> This is **not** a full governance engine and does not include the closed governance/judgment core.
->
-> 本專案**不是**完整治理引擎，不包含封閉治理/判斷核心。
+- 用於跨會話、跨來源記憶檔案的開放式索引層。
+- 提供可直接執行的 starter package。
+- 提供可擴充的公開基礎，讓你自行接模型與流程。
 
-## Why this is not just memory storage / 為何不只是記憶儲存
+## What this project is not / 這個專案不是什麼
 
-This project does not only store memory files; it organizes memory with SCBKR fields so recall can be replayed,
-audited, and routed with clear responsibility traces.
+- **Not** a full governance engine.
+- **Not** the closed judgment core.
+- **Not** a finished enterprise compliance product.
+- **Not** a one-click “complete AI agent platform.”
 
-本專案不只是把資料存起來，而是透過 SCBKR 欄位建立可重播、可稽核、可路由的記憶索引。
+- **不是**完整治理引擎。
+- **不是**封閉判斷核心。
+- **不是**已完成的企業合規產品。
+- **不是**一鍵完成的 AI agent 平台。
 
-> The R field is not automatically equivalent to truth. Responsibility should not be silently replaced by an algorithm; users should consciously decide who bears each memory item.
->
-> 「R 欄位不是自動等於真相。責任不該被演算法悄悄取代；使用者應在使用前，明確決定每筆記憶由誰承擔。」
+## What you can do today / 你今天就能用它做什麼
+
+Today, the repo already provides these runnable tools:
+目前 repo 已可直接使用以下工具：
+
+1. `tools/auto_index.py` — generate SCBKR index JSON from local files.
+2. `tools/build_optimized_index.py` — build lookup-friendly maps (**experimental**).
+3. `tools/r_field_recommender.py` — output R-field candidate suggestions (**experimental**, user review required).
+4. `services/scbkr_llm_bridge.py` — create generic LLM prompt payload from indexed memories (**experimental**).
+
+## Who this is for / 這適合誰使用
+
+- People who want structured memory, not just loose folders.
+- Developers building memory-enabled assistants and need a clear indexing layer.
+- Teams that care about auditability and explicit responsibility traces.
+
+- 想要「結構化記憶」而不只是資料夾的人。
+- 正在做具記憶能力應用、需要清楚索引層的開發者。
+- 重視可稽核性與責任追蹤的團隊。
+
+## Quick mental model / 一句話理解它在幹嘛
+
+**SCBKR Memory Index = a reusable memory table-of-contents layer, not the final decision engine.**
+
+**SCBKR 記憶庫索引 = 可重用的記憶目錄層，不是最終決策引擎。**
+
+---
+
+## What you get after download / 下載後你會得到什麼
+
+- Static frontend at `main-root/` (for GitHub Pages showcase).
+- Starter package at `main-root/starter-package/`.
+- Example memory folders + runnable indexing scripts.
+- Experimental extension utilities for search-friendly indexing and integration scaffolding.
+
+- `main-root/`：可部署的靜態前端展示。
+- `main-root/starter-package/`：可直接使用的起始套件。
+- 範例記憶資料夾與可執行索引腳本。
+- 可擴充的實驗性工具骨架（查詢友善層與橋接層）。
+
+---
 
 ## Project map / 路徑說明
 
-- `repo root/` (this folder): overall source root.
+- `repo root/`: overall source root.
 - `main-root/`: static public frontend (GitHub Pages target).
-- `main-root/starter-package/`: downloadable starter data + `auto_index.py` utility.
+- `main-root/starter-package/`: starter data + indexing tools.
 
-## Deploy frontend / 部署前端
+Additional reading:
+- `GENERAL_AUDIENCE_GUIDE.md` (non-technical guide)
+- `DEVELOPER_OVERVIEW.md` (technical boundary + extension guide)
+- `main-root/starter-package/GETTING_STARTED_IMPROVEMENTS.md` (3-minute hands-on path)
 
-1. Push repository to GitHub.
-2. Open **Settings → Pages**.
-3. Publish from branch/folder and set folder to `main-root`.
-
-Local preview:
-
-```bash
-cd main-root
-python3 -m http.server 8080
-```
-
-Then open: <http://localhost:8080>
-
-
-## Practical usage / 實際使用路徑
-
-If your goal is to actually use memory indexing (not just view the webpage), start here:
+## Quick start in 3 minutes / 3 分鐘快速開始
 
 ```bash
 cd main-root/starter-package
-python3 tools/auto_index.py --source ./memory-index --output ./memory-index/index.scbkr.generated.json
+python3 tools/auto_index.py \
+  --source ./memory-index \
+  --output ./memory-index/index.scbkr.generated.json
 ```
 
-Use files under `main-root/starter-package/memory-index/` as your working memory source folders.
-
-### Experimental utilities (initial skeletons) / 實驗性工具（初始骨架）
-
-Under `main-root/starter-package/`, the project now includes three **experimental** utilities for extension work:
-
-- `tools/build_optimized_index.py`: builds lookup maps (`route`, `date`, `keyword`, `R`) from generated index JSON.
-- `tools/r_field_recommender.py`: outputs heuristic **suggestion candidates** for `R` (user review required).
-- `services/scbkr_llm_bridge.py`: generic bridge helpers (`load_index`, `search_memories`, `build_prompt_payload`) without direct provider API calls.
-
-在 `main-root/starter-package/` 內新增三個**實驗性**工具，作為後續擴充起點：
-
-- `tools/build_optimized_index.py`：從既有索引建立 `route/date/keyword/R` 查找表。
-- `tools/r_field_recommender.py`：輸出 `R` 欄位候選建議（需人工審閱）。
-- `services/scbkr_llm_bridge.py`：提供橋接骨架函式（不直接串接 OpenAI/Claude API）。
-
-Quick run examples / 快速範例：
+Then optionally run experimental utilities:
 
 ```bash
-cd main-root/starter-package
 python3 tools/build_optimized_index.py \
   --source ./memory-index/index.scbkr.generated.json \
   --output ./memory-index/index.scbkr.optimized.json
@@ -91,6 +108,17 @@ python3 services/scbkr_llm_bridge.py \
   --query "onboarding policy risk" \
   --top-k 3
 ```
+
+## Deploy frontend / 部署前端
+
+```bash
+cd main-root
+python3 -m http.server 8080
+```
+
+Open: <http://localhost:8080>
+
+---
 
 ## Roadmap & Planned Improvements / 改進路線圖
 
