@@ -21,11 +21,11 @@
       <div class="container nav-wrap">
         <a class="brand" href="#top">SCBKR Memory Index</a>
         <nav class="nav-links">
-          <a href="#about">關於</a>
-          <a href="#run">快速執行</a>
-          <a href="#download">下載 ZIP</a>
-          <a href="#layers">開源/商業層</a>
-          <a href="#founder">聯絡</a>
+          <a href="#about">關於 / About</a>
+          <a href="#run">快速執行 / Run</a>
+          <a href="#download">下載 ZIP / Download</a>
+          <a href="#layers">開源/商業層 / Layers</a>
+          <a href="#founder">聯絡 / Contact</a>
         </nav>
       </div>
     </header>
@@ -78,14 +78,14 @@
             <article class="card">
               <h3>What it is / 這是什麼</h3>
               <p>
-                可下載、可執行的記憶索引層，讓你用 SCBKR 管理記憶並保留責任鏈。
-                Downloadable and runnable memory indexing layer with explicit responsibility trace.
+                可下載、可執行的記憶索引層，讓你用 SCBKR 管理記憶並保留責任鏈。<br />
+                We provide a downloadable, runnable memory indexing layer with explicit responsibility trace.
               </p>
             </article>
             <article class="card">
               <h3>What it is not / 這不是什麼</h3>
               <p>
-                不是完整治理引擎、不是封閉判斷核心、不是自動責任判定器。
+                不是完整治理引擎、不是封閉判斷核心、不是自動責任判定器。<br />
                 It is not a full governance engine, not a closed judgment core, and not automatic responsibility adjudication.
               </p>
             </article>
@@ -98,21 +98,21 @@
           <h2>Run in 3 Steps / 三步執行</h2>
           <div class="grid three-col">
             <article class="card">
-              <h3>Step 1 · 下載後進入</h3>
+              <h3>Step 1 · 下載後進入 / Enter folder</h3>
               <pre class="command-block"><code>cd main-root/starter-package</code></pre>
-              <p>之後所有指令都在此資料夾執行。</p>
+              <p>之後所有指令都在此資料夾執行。 All commands below run in this folder.</p>
             </article>
             <article class="card">
-              <h3>Step 2 · 一鍵產生 + 截斷</h3>
+              <h3>Step 2 · 一鍵產生 + 截斷 / Build + Gate</h3>
               <pre class="command-block"><code>./run_open_layer.sh</code></pre>
-              <p>會產生 generated/gate-report/decision-ready 三份輸出。</p>
+              <p>會產生 generated/gate-report/decision-ready 三份輸出。 It generates three output files.</p>
             </article>
             <article class="card">
-              <h3>Step 3 · 啟動本地 API</h3>
+              <h3>Step 3 · 啟動本地 API / Start local API</h3>
               <pre class="command-block"><code>python3 services/scbkr_api_server.py \
   --index ./memory-index/index.scbkr.decision-ready.json \
   --port 9000</code></pre>
-              <p>預設只回傳 decision-ready 記憶。</p>
+              <p>預設只回傳 decision-ready 記憶。 By default, only decision-ready memory is returned.</p>
             </article>
           </div>
           <pre class="command-block"><code>curl http://127.0.0.1:9000/health
@@ -124,7 +124,7 @@ curl -X POST http://127.0.0.1:9000/query -H "Content-Type: application/json" -d 
         <div class="container cta-card">
           <h2>Download ZIP / 下載 ZIP</h2>
           <p>
-            下載後可直接執行 open layer，先索引、再責任鏈截斷、再本地查詢。
+            下載後可直接執行 open layer，先索引、再責任鏈截斷、再本地查詢。<br />
             Download and run immediately: index -> human gate -> local query.
           </p>
           <a
@@ -146,17 +146,17 @@ curl -X POST http://127.0.0.1:9000/query -H "Content-Type: application/json" -d 
             <article class="card">
               <h3>Open Layer (Public Repo)</h3>
               <ul>
-                <li>auto_index.py</li>
-                <li>scbkr_human_gate.py</li>
-                <li>scbkr_api_server.py</li>
+                <li>auto_index.py（自動建立索引 / auto indexing）</li>
+                <li>scbkr_human_gate.py（責任鏈截斷 / responsibility gate）</li>
+                <li>scbkr_api_server.py（本地查詢 API / local query API）</li>
               </ul>
             </article>
             <article class="card">
               <h3>Commercial Layer (Licensed)</h3>
               <ul>
-                <li>治理權重與參數引擎</li>
-                <li>模型上層白盒規則</li>
-                <li>企業審計與導入支援</li>
+                <li>治理權重與參數引擎 / governance weights & parameter engine</li>
+                <li>模型上層白盒規則 / white-box rules above model outputs</li>
+                <li>企業審計與導入支援 / enterprise audit & onboarding support</li>
               </ul>
             </article>
           </div>
@@ -168,7 +168,7 @@ curl -X POST http://127.0.0.1:9000/query -H "Content-Type: application/json" -d 
         <div class="container founder-card">
           <h2>Founder / 聯絡窗口</h2>
           <p><strong>Shen-Yao 888π / Wen-Yao Hsu</strong></p>
-          <p>合作、授權與商業導入請透過創辦人窗口聯絡。</p>
+          <p>合作、授權與商業導入請透過創辦人窗口聯絡。 For collaboration, licensing, and commercial onboarding, contact the founder.</p>
           <a
             class="btn btn-ghost"
             href="https://hijo790401.github.io/shen-yao-portal/"
@@ -183,7 +183,7 @@ curl -X POST http://127.0.0.1:9000/query -H "Content-Type: application/json" -d 
     <footer class="site-footer">
       <div class="container footer-wrap">
         <p>scbkr-memory-index · SCBKR 記憶庫索引</p>
-        <p>This project open-sources the indexing layer, not the closed governance core.</p>
+        <p>This project open-sources the indexing layer only, not the closed governance core.</p>
       </div>
     </footer>
   </body>
