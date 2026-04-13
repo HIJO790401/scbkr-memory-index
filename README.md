@@ -1,61 +1,78 @@
 # scbkr-memory-index
 
-Public-facing frontend project for **SCBKR Memory Index**.
+SCBKR Memory Index 是一個「可下載、可執行、可擴充」的**開源記憶索引層**。  
+它不是完整治理引擎，而是先把記憶整理成可查詢、可重播、可稽核、可路由的 SCBKR 結構。
 
-## What this is / 專案定位
+---
 
-SCBKR Memory Index is an **open indexing layer** for long-term AI memory organization.
-It is designed for structured indexing, replayability, auditability, and routing.
+## 你下載 ZIP 之後可以直接做什麼
 
-SCBKR 記憶庫索引是面向長期 AI 記憶組織的**開放式索引層**，重點是結構化索引、可重播、可稽核與可路由。
+1. 把資料放進 `main-root/starter-package/memory-index/`
+2. 自動產生索引
+3. 經過責任鏈截斷（human gate）
+4. 啟動本地 API 查詢
 
-The public site is a fixed structured showcase (not a freeform playground).
-公開網站為固定結構化示範（不是自由輸入沙盒）。
+快速流程（建議）：
 
-> This is **not** a full governance engine and does not include the closed governance/judgment core.
->
-> 本專案**不是**完整治理引擎，不包含封閉治理/判斷核心。
+```bash
+cd main-root/starter-package
+./run_open_layer.sh
+python3 services/scbkr_api_server.py --index ./memory-index/index.scbkr.decision-ready.json --port 9000
+```
 
-## Why this is not just memory storage / 為何不只是記憶儲存
+---
 
-This project does not only store memory files; it organizes memory with SCBKR fields so recall can be replayed,
-audited, and routed with clear responsibility traces.
+## 開源層（你現在就能用）
 
-本專案不只是把資料存起來，而是透過 SCBKR 欄位建立可重播、可稽核、可路由的記憶索引。
+位置：`main-root/starter-package/`
 
-> The R field is not automatically equivalent to truth. Responsibility should not be silently replaced by an algorithm; users should consciously decide who bears each memory item.
->
-> 「R 欄位不是自動等於真相。責任不該被演算法悄悄取代；使用者應在使用前，明確決定每筆記憶由誰承擔。」
+- `tools/auto_index.py`：從資料夾產生 SCBKR 索引 JSON
+- `tools/scbkr_human_gate.py`：責任鏈截斷，輸出 decision-ready / review-required
+- `services/scbkr_api_server.py`：本地 REST 查詢（`/health`, `/query`）
+- `tools/build_optimized_index.py`（experimental）：建立查找表
+- `tools/r_field_recommender.py`（experimental）：R 欄位候選建議（不自動判定）
+- `services/scbkr_llm_bridge.py`（experimental）：LLM payload 橋接骨架（不直連 provider）
 
-## Project map / 路徑說明
+---
 
-- `repo root/` (this folder): overall source root.
-- `main-root/`: static public frontend (GitHub Pages target).
-- `main-root/starter-package/`: downloadable starter data + `auto_index.py` utility.
+## 這個專案不是什麼（邊界）
 
-## Deploy frontend / 部署前端
+- 不是完整治理引擎
+- 不是封閉判斷核心
+- 不是企業合規完成版產品
+- 不是自動責任判定器
 
-1. Push repository to GitHub.
-2. Open **Settings → Pages**.
-3. Publish from branch/folder and set folder to `main-root`.
+你的核心規則是：
+**沒有責任鏈，不進決策。**
 
-Local preview:
+---
+
+## 前端展示位置
+
+- 靜態展示頁：`main-root/index.html`
+- 本機預覽：
 
 ```bash
 cd main-root
 python3 -m http.server 8080
 ```
 
-Then open: <http://localhost:8080>
+---
 
+## 商業層（不在開源 repo 內）
 
-## Practical usage / 實際使用路徑
+你可以在商業版本提供：
 
-If your goal is to actually use memory indexing (not just view the webpage), start here:
+- SCBKR 治理權重與參數引擎
+- 模型上層白盒規則
+- 企業審計策略模板與導入服務
 
-```bash
-cd main-root/starter-package
-python3 tools/auto_index.py --source ./memory-index --output ./memory-index/index.scbkr.generated.json
-```
+說明文件：`COMMERCIAL_LAYER_OVERVIEW.md`
 
-Use files under `main-root/starter-package/memory-index/` as your working memory source folders.
+---
+
+## 相關文件
+
+- `GENERAL_AUDIENCE_GUIDE.md`：一般使用者說明
+- `DEVELOPER_OVERVIEW.md`：開發者與資料流
+- `main-root/starter-package/GETTING_STARTED_IMPROVEMENTS.md`：上手指引
