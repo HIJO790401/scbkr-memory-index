@@ -272,7 +272,8 @@ body {
   }
 
   .two-col,
-  .four-col {
+  .four-col,
+  .roadmap-grid {
     grid-template-columns: 1fr;
   }
 
