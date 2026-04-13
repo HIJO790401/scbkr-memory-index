@@ -1,61 +1,91 @@
 # scbkr-memory-index
 
-Public-facing frontend project for **SCBKR Memory Index**.
+我把這個專案做成一個可下載、可執行、可擴充的 **SCBKR 開放式記憶索引層**。  
+I built this project as a downloadable, runnable, and extensible **open SCBKR memory indexing layer**.
 
-## What this is / 專案定位
+我不把它包裝成完整治理引擎；它的工作是先把記憶整理好，再做責任鏈截斷。  
+I do not package this as a full governance engine; its job is to structure memory first, then apply responsibility-chain cutoff.
 
-SCBKR Memory Index is an **open indexing layer** for long-term AI memory organization.
-It is designed for structured indexing, replayability, auditability, and routing.
+---
 
-SCBKR 記憶庫索引是面向長期 AI 記憶組織的**開放式索引層**，重點是結構化索引、可重播、可稽核與可路由。
+## 我這個專案在做什麼 / What I am building
 
-The public site is a fixed structured showcase (not a freeform playground).
-公開網站為固定結構化示範（不是自由輸入沙盒）。
+- 我用 SCBKR（S/C/B/K/R）把跨來源記憶整理成可查詢、可重播、可稽核、可路由的索引。
+- 我提供 starter-package，讓你下載 ZIP 後可以直接跑起來。
+- 我把核心規則寫死：**沒有責任鏈，不進決策。**
 
-> This is **not** a full governance engine and does not include the closed governance/judgment core.
->
-> 本專案**不是**完整治理引擎，不包含封閉治理/判斷核心。
+- I use SCBKR (S/C/B/K/R) to structure cross-source memory into queryable, replayable, auditable, and routable indexes.
+- I provide a starter package so you can run it directly after downloading ZIP.
+- I enforce one core rule: **No responsibility chain, no decision path.**
 
-## Why this is not just memory storage / 為何不只是記憶儲存
+---
 
-This project does not only store memory files; it organizes memory with SCBKR fields so recall can be replayed,
-audited, and routed with clear responsibility traces.
+## 這個專案不是什麼 / What this project is not
 
-本專案不只是把資料存起來，而是透過 SCBKR 欄位建立可重播、可稽核、可路由的記憶索引。
+- 我沒有開源封閉治理核心。
+- 我沒有把它做成完整企業合規產品。
+- 我沒有做自動責任判定器。
 
-> The R field is not automatically equivalent to truth. Responsibility should not be silently replaced by an algorithm; users should consciously decide who bears each memory item.
->
-> 「R 欄位不是自動等於真相。責任不該被演算法悄悄取代；使用者應在使用前，明確決定每筆記憶由誰承擔。」
+- I do not open-source the closed governance core.
+- I do not claim this is a full enterprise compliance product.
+- I do not provide automatic responsibility adjudication.
 
-## Project map / 路徑說明
+---
 
-- `repo root/` (this folder): overall source root.
-- `main-root/`: static public frontend (GitHub Pages target).
-- `main-root/starter-package/`: downloadable starter data + `auto_index.py` utility.
+## 下載後直接可用流程 / Runnable flow after ZIP download
 
-## Deploy frontend / 部署前端
+```bash
+cd main-root/starter-package
+./run_open_layer.sh
+python3 services/scbkr_api_server.py --index ./memory-index/index.scbkr.decision-ready.json --port 9000
+```
 
-1. Push repository to GitHub.
-2. Open **Settings → Pages**.
-3. Publish from branch/folder and set folder to `main-root`.
+這個流程會做三件事：
+1. 建立索引 `index.scbkr.generated.json`
+2. 套用責任鏈截斷 `index.scbkr.decision-ready.json`
+3. 啟動本地 API (`/health`, `/query`)
 
-Local preview:
+This flow does three things:
+1. build index `index.scbkr.generated.json`
+2. apply responsibility-chain cutoff `index.scbkr.decision-ready.json`
+3. start local API (`/health`, `/query`)
+
+---
+
+## 開源層工具清單 / Open-layer tools
+
+- `tools/auto_index.py`
+- `tools/scbkr_human_gate.py`
+- `services/scbkr_api_server.py`
+- `tools/build_optimized_index.py`（experimental）
+- `tools/r_field_recommender.py`（experimental）
+- `services/scbkr_llm_bridge.py`（experimental）
+
+---
+
+## 商業層說明 / Commercial layer boundary
+
+商業層不放在這個公開 repo，包含治理權重、白盒規則、企業導入支援。  
+The commercial layer is not inside this public repo and includes governance weights, white-box rules, and enterprise onboarding support.
+
+請看：`COMMERCIAL_LAYER_OVERVIEW.md`
+
+---
+
+## 前端展示 / Frontend showcase
 
 ```bash
 cd main-root
 python3 -m http.server 8080
 ```
 
-Then open: <http://localhost:8080>
+首頁重點是「可執行命令 + 責任鏈邏輯」，不是行銷頁。  
+The homepage focuses on executable commands and responsibility-chain logic, not marketing fluff.
 
+---
 
-## Practical usage / 實際使用路徑
+## 相關文件 / Related docs
 
-If your goal is to actually use memory indexing (not just view the webpage), start here:
-
-```bash
-cd main-root/starter-package
-python3 tools/auto_index.py --source ./memory-index --output ./memory-index/index.scbkr.generated.json
-```
-
-Use files under `main-root/starter-package/memory-index/` as your working memory source folders.
+- `GENERAL_AUDIENCE_GUIDE.md`
+- `DEVELOPER_OVERVIEW.md`
+- `main-root/starter-package/GETTING_STARTED_IMPROVEMENTS.md`
