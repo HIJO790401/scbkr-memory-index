@@ -1,113 +1,61 @@
 # GENERAL AUDIENCE GUIDE
-# 一般讀者導覽
+# 一般使用者導覽
 
-## 1) SCBKR 是什麼？ / What is SCBKR?
+## 這個專案在做什麼？
 
-SCBKR 是一種記憶整理格式，把每筆記憶分成 5 個欄位：
-SCBKR is a memory structure with 5 fields:
+它在做「記憶索引」，不是在做神祕 AI 魔法。
 
-- **S (Subject)**：這筆記憶在講誰／什麼主題
-- **C (Cause)**：背景原因或脈絡
-- **B (Boundary)**：限制、範圍、不能做什麼
-- **K (Key Evidence)**：關鍵證據或來源
-- **R (Responsibility)**：誰要對這筆記憶負責
+你可以把它想成：
+- 先把資料整理成 SCBKR 欄位（S/C/B/K/R）
+- 再用責任鏈規則決定哪些記憶可以進決策
 
-簡單說：它不是把資料塞進資料夾，而是把記憶做成可追溯的結構。
-In short: this is not just filing documents; it is structuring memory with traceable context.
+核心原則：
+**沒有責任鏈，不進決策。**
 
 ---
 
-## 2) 為什麼這不是普通的資料夾整理？
-## Why this is not just folder organization
+## 為什麼不是普通資料夾？
 
-普通資料夾通常只回答「檔案放在哪裡」。
-A normal folder mostly tells you where a file is.
-
-SCBKR 會補上：
-SCBKR also records:
-- 這筆記憶的脈絡（Cause）
-- 使用邊界（Boundary）
-- 證據鏈（Key Evidence）
-- 責任歸屬（Responsibility）
-
-因此你不只找到檔案，還能理解「這筆記憶可不可以用、怎麼用、誰負責」。
-So you can review not just *where* memory is, but *how* and *whether* to use it.
+普通資料夾只告訴你「檔案在哪裡」。
+SCBKR 會多告訴你：
+- 事件主題（S）
+- 背景原因（C）
+- 使用邊界（B）
+- 可驗證證據（K）
+- 誰負責（R）
 
 ---
 
-## 3) 為什麼 R 欄位特別重要？
-## Why is the R field especially important?
+## 你現在下載 ZIP 能做什麼？
 
-R（Responsibility）不是裝飾欄位。
-R (Responsibility) is not decorative metadata.
+可以直接做：
+1. 自動建立索引
+2. 做責任鏈截斷（human gate）
+3. 啟動本地 API 查詢
 
-它代表：
-It represents:
-- 誰對這筆記憶的採用與風險承擔責任
-- 出現爭議時可以回溯到誰做了決定
+指令（最短）：
 
-這個專案強調：**責任不能被悄悄自動化**。
-This repo explicitly treats responsibility as a human decision, not silent automation.
-
----
-
-## 4) 為什麼強調責任、重播、可查詢？
-## Why focus on responsibility, replay, and queryability?
-
-因為長期記憶系統最常見問題不是「找不到檔案」，而是：
-Because long-term memory systems usually fail not at storage, but at usage quality:
-
-- 找到內容卻不知道是否可信
-- 不知道這筆資訊從哪裡來
-- 不知道誰該負責
-- 下一次想重現同樣判斷時做不到
-
-SCBKR 的核心目的，是讓每筆記憶更可解釋、可回溯、可重播。
-The goal is to make memory easier to explain, trace, and replay.
+```bash
+cd main-root/starter-package
+./run_open_layer.sh
+python3 services/scbkr_api_server.py --index ./memory-index/index.scbkr.decision-ready.json --port 9000
+```
 
 ---
 
-## 5) 目前這個 repo 已經能做什麼？
-## What can this repo do today?
+## 目前還不能做什麼？
 
-目前可用能力（2026-04-13）：
-Current available capabilities (as of 2026-04-13):
-
-1. `auto_index.py`：從資料夾自動產出 SCBKR 索引 JSON。
-2. `build_optimized_index.py`（experimental）：把索引轉成查詢友善查找表。
-3. `r_field_recommender.py`（experimental）：提供 R 欄位候選建議（需人工確認）。
-4. `scbkr_llm_bridge.py`（experimental）：把查詢結果包成通用 prompt payload。
-
----
-
-## 6) 目前還不能做什麼？
-## What it still does NOT do
-
-這個 repo 目前**不包含**：
-This repo currently does **not** include:
-
+目前不包含：
 - 完整治理引擎
-- 封閉判斷核心
-- 自動責任最終判定器
-- 企業合規完整產品
-- 真實 provider API 直連（例如直接呼叫 OpenAI/Claude）
-
-如果你需要這些，必須在此索引層之上自行整合。
-If you need those, you should build them on top of this indexing layer.
+- 自動責任判定
+- 企業合規完成版
+- 供應商 API 直連完整服務
 
 ---
 
-## 7) 如果我是一般使用者，我可以怎麼開始？
-## If I am a non-technical user, how should I start?
+## 開源層 vs 商業層
 
-最簡單路徑：
-Simple path:
+- 開源層：你可下載、可跑、可擴充
+- 商業層：治理權重、白盒規則、企業導入
 
-1. 先看首頁了解用途（`main-root/index.html`）。
-2. 下載 ZIP 並解壓。
-3. 進入 `main-root/starter-package/`。
-4. 請懂基本命令列的人協助執行 `auto_index.py`。
-5. 打開產生的 JSON，觀察每筆記憶的 S/C/B/K/R。
-
-如果你不是工程師，也可以先把這個專案當成「記憶結構標準」，先統一欄位再談模型整合。
-If you are not a developer, you can still use SCBKR as a memory-structure standard before model integration.
+詳見：`COMMERCIAL_LAYER_OVERVIEW.md`
