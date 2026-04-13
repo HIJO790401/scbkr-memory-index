@@ -218,6 +218,21 @@ body {
   font-weight: 600;
 }
 
+
+.roadmap-cta {
+  margin-top: 1rem;
+  color: var(--muted);
+}
+
+#open-commercial ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.1rem;
+}
+
+#open-commercial li {
+  margin-bottom: 0.35rem;
+}
+
 .site-footer {
   background: #0b1f3f;
   color: #d2e0ff;
@@ -238,6 +253,7 @@ body {
   .three-col {
     grid-template-columns: 1fr;
   }
+
 }
 
 @media (max-width: 760px) {
